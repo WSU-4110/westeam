@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-export class Login extends Component {
-  static displayName = Login.name;
-
-  render () {
-    return (
-      <div>
-        <h1>Login Page here</h1>
-        
-      </div>
+export class Login extends Component{
+    return(
+    <div>
+        <Form inline>
+            <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                <Label for="exampleEmail" className="mr-sm-2">Email</Label>
+                <Input type="email" name="email" id="exampleEmail" placeholder="something@idk.cool" />
+            </FormGroup>
+            <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                <Label for="examplePassword" className="mr-sm-2">Password</Label>
+                <Input type="password" name="password" id="examplePassword" placeholder="don't tell!" />
+            </FormGroup>
+            <Button>Submit</Button>
+        </Form>
+    </div>
     );
-  }
 }
+
+export default Login;
