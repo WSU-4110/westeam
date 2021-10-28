@@ -12,6 +12,7 @@ namespace westeam
         public string steamid { get; set; }
         public string relationship { get; set; }
         public int friend_since { get; set; }
+        public int friends_games { get; set; }
     }
 
     public class Friendslist
@@ -23,5 +24,11 @@ namespace westeam
     {
         public Friendslist friendslist { get; set; }
     }
+
+    public class Friendsgames
+    {
+        public Friendslist friendsgames { get; set; }
+    }
+
 }
 
