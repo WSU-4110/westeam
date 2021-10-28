@@ -5,6 +5,8 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -50,48 +52,78 @@ export class Home extends Component {
         this.setState({ STEAM_ID_LIST: updatedList });
     }
 
-  render () {
-    return (
-      <div>
-        <h1>Home Page</h1>
-            <Container className="p-3">
-                <Jumbotron>
-                    <h1 className="header">
-                        westeam
-                    </h1>
-                    <br />
-                    <InputGroup className="mb-3">
-                        <FormControl
-                            placeholder="Enter SteamID or Steam CommunityID, Profile URL or Keywords"
-                            type="text"
-                            value={this.state.INPUT_STEAM_ID}
-                            onChange={this.updateInput}
-                        />
-                        <InputGroup.Append>
-                            <Button variant="outline-secondary"
-                                onClick={() => this.addItem()}
-                                disabled={!this.state.INPUT_STEAM_ID.length}>Add</Button>
-                        </InputGroup.Append>
-                    </InputGroup>
-                    <br />
+    render() {
+        return (
+            <div>
+                <h1>Home Page</h1>
+                <Container className="p-1">
+                    <Row>
+                        <Col>
+                            <InputGroup className="mb-1">
+                                <InputGroup.Prepend>
+                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                </InputGroup.Prepend>
+                                <ListGroup.Item>Friend 1</ListGroup.Item>
 
-                    <ListGroup >
-                        {this.state.STEAM_ID_LIST.map((item) => {
-                            return (
-                                <ListGroup.Item key={item.id} variant="success">
-                                    {item.value}
-                                    <Button onClick={() => this.deleteItem(item.id)}
-                                        variant="danger"
-                                        style={{ float: "right" }}>Remove</Button>
-                                </ListGroup.Item>
-                            );
-                        })}
-                    </ListGroup>
+                            </InputGroup>
+                            <InputGroup className="mb-1">
+                                <InputGroup.Prepend>
+                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                </InputGroup.Prepend>
+                                <ListGroup.Item>Friend 2</ListGroup.Item>
 
+                            </InputGroup>
+                            <InputGroup className="mb-1">
+                                <InputGroup.Prepend>
+                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                </InputGroup.Prepend>
+                                <ListGroup.Item>Friend 3</ListGroup.Item>
 
-                </Jumbotron>
-            </Container>
-      </div>
-    );
-  }
+                            </InputGroup>
+                            <InputGroup className="mb-1">
+                                <InputGroup.Prepend>
+                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                </InputGroup.Prepend>
+                                <ListGroup.Item>Friend 4</ListGroup.Item>
+                            </InputGroup>
+
+                        </Col>
+                        <Col xs={8}>                    <Jumbotron>
+                            <h1 className="header">
+                                Manually Enter Friends ID
+                            </h1>
+                            <br />
+                            <InputGroup className="mb-3">
+                                <FormControl
+                                    placeholder="Enter SteamID or Steam CommunityID or Profile URL"
+                                    type="text"
+                                    value={this.state.INPUT_STEAM_ID}
+                                    onChange={this.updateInput}
+                                />
+                                <InputGroup.Append>
+                                    <Button variant="outline-secondary"
+                                        onClick={() => this.addItem()}
+                                        disabled={!this.state.INPUT_STEAM_ID.length}>Add</Button>
+                                </InputGroup.Append>
+                            </InputGroup>
+                            <br />
+
+                            <ListGroup >
+                                {this.state.STEAM_ID_LIST.map((item) => {
+                                    return (
+                                        <ListGroup.Item key={item.id} variant="success">
+                                            {item.value}
+                                            <Button onClick={() => this.deleteItem(item.id)}
+                                                variant="danger"
+                                                style={{ float: "right" }}>Remove</Button>
+                                        </ListGroup.Item>
+                                    );
+                                })}
+                            </ListGroup>
+                        </Jumbotron></Col>
+                    </Row>
+                </Container>
+            </div>
+        );
+    }
 }
