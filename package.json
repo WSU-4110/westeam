@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "cd client/ && npm run build && cd ../ && NODE_ENV=prod node server",
-    "dev": "NODE_ENV=dev nodemon server"
+    "start": "cd client/ && npm run build && cd ../ && node server",
+    "dev": "nodemon server"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
