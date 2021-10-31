@@ -16,6 +16,8 @@ app.use(express.static("./ClientApp/build/"));
 app.use(morgan("tiny"));
 app.use("/api", routes);
 
+
+//Default route, always keep this at the bottom
 app.get("/*", (req, res) => {
   res.sendFile("index.html", {
     root: __dirname + "/ClientApp/build/",
