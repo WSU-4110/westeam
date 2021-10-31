@@ -35,3 +35,19 @@ app.get("/*", (req, res) => {
 var PORT = 3001;
 
 app.listen(PORT, console.log(`Server listening on port: ${PORT}`));
+
+// Login information
+var name = " ";
+var id = 0;
+var gameslist = " ";
+
+
+// Friends information
+var friendsname = " ";
+var friendsid = 0;
+var friendsgames = " ";
+
+// Fetch Data
+var getuserinfo = " ";
+var getfriendsinfo = " ";
+var returngames = " ";
