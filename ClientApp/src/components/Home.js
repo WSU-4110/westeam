@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Container from "react-bootstrap/Container";
-import { SteamIDBar } from "./SteamIDBar";
-import { Chat } from "./Chat";
-
+import ListGroup from "react-bootstrap/ListGroup";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -11,16 +11,50 @@ export class Home extends Component {
         super();
     }
 
-    
-  render () {
-    return (
-      <div>
-        <h1>Home Page</h1>
-            <Container className="p-3">
-                <SteamIDBar />
-                <Chat />
-            </Container>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <h1>Home Page</h1>
+                <Container className="p-1">
+                    <Row>
+                        <Col xs={8}>                    <Jumbotron>
+                            <h1 className="header">
+                                Enter Your Steam ID
+                            </h1>
+                            <br />
+                            <InputGroup className="mb-3">
+                                <FormControl
+                                    placeholder="Example: 76561197960287930"
+                                    type="text"
+                                    value={this.state.INPUT_STEAM_ID}
+                                    onChange={this.updateInput}
+                                />
+
+                            </InputGroup>
+                            <br />
+
+                            <ListGroup >
+                                {this.state.STEAM_ID_LIST.map((item) => {
+                                    return (
+                                        <ListGroup.Item key={item.id} variant="success">
+                                            {item.value}
+                                            <Button onClick={() => this.deleteItem(item.id)}
+                                                variant="danger"
+                                                style={{ float: "right" }}>Remove</Button>
+                                        </ListGroup.Item>
+                                    );
+                                })}
+                            </ListGroup>
+                            {/* <Button href="friends">Submit</Button> */}
+                            <Button href={"friends?id=" + this.state.INPUT_STEAM_ID}>Submit</Button>
+
+
+                        </Jumbotron>
+                            Example ID: 76561197960287930
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        );
+    }
 }
