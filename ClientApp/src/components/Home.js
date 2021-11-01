@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import Jumbotron from "react-bootstrap/Jumbotron";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
@@ -13,43 +9,6 @@ export class Home extends Component {
 
     constructor() {
         super();
-        this.updateInput = this.updateInput.bind(this);
-        this.state = {
-            INPUT_STEAM_ID: "",
-            STEAM_ID_LIST: [],
-        };
-    }
-
-    updateInput(event) {
-        this.setState({ INPUT_STEAM_ID: event.target.value });
-    }
-
-    addItem() {
-        let newEntry = {
-            id: 1 + Math.random(),
-            value: this.state.INPUT_STEAM_ID.slice(),
-        };
-
-        const list = [...this.state.STEAM_ID_LIST];
-
-        list.push(newEntry);
-
-        this.setState({
-            INPUT_STEAM_ID: "",
-            STEAM_ID_LIST: list
-        });
-    }
-
-    deleteItem(id) {
-        const list = [...this.state.STEAM_ID_LIST];
-
-        const updatedList = list.filter(function (item) {
-            if (item.id !== id) {
-                return item;
-            }
-        });
-
-        this.setState({ STEAM_ID_LIST: updatedList });
     }
 
     render() {
