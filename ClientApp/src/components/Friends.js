@@ -109,9 +109,9 @@ export class Friends extends Component {
                             </Suspense>
                         </Col>
                         <Col xs={8}>                    <Jumbotron>
-                            <h1 className="header">
+                            <h2 className="header">
                                 Manually Enter Friends STEAM ID
-                            </h1>
+                            </h2>
                             <br />
                             <InputGroup className="mb-3">
                                 <FormControl
