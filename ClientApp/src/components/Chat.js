@@ -5,11 +5,10 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, onChildAdded } from "firebase/database";
+import { firebaseConfig } from './FIREBASE_API_KEY';
 
 
-const firebaseConfig = {
-   Apistuff
-};
+
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
@@ -48,7 +47,7 @@ export class Chat extends Component {
                 {/* Create a dynamic list of chat bubbles, left if other user, right if current user */}
                 {/* Dynamic list will be based off the messages you get from realtime database */}
 
-                
+
                 <textarea id="msg" placeholder="Type message.." name="msg" required></textarea>
 
                 <button onClick={this.sendMessage} class="btnChat">Send</button>
