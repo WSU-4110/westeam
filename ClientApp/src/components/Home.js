@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Chat } from './Chat';
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -95,6 +96,7 @@ export class Home extends Component {
                         </Col>
                     </Row>
                 </Container>
+                <Chat />
             </div>
         );
     }

@@ -8,7 +8,38 @@ code {
 }
 
 .btn-primary {
-  color: #fff;
+  color: #fff(11, 6, 85);
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+div{
+  color: black;
+}
+
+header{
+  background-color: rgb(114, 114, 180);
+}
+
+h1 Home Page{
+  color: white;
+}
+
+h1{
+  color: black;
+  font:bold;
+}
+
+body{
+  background-color: rgb(43, 40, 40);
+}
+
+NavLink{
+  color: white;
+}
+
+Table{
+  background-color: rgb(195, 221, 228);
+  border-style: solid;
+  border-color: white 1px;
 }
