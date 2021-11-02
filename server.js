@@ -26,63 +26,43 @@ app.use(morgan("tiny"));
 app.use("/api", routes);
 
 
-
 app.get("/friends/:steamID", (req, res) => {
-  console.log(req.params.steamID);
+  console.log("Getting friends list of " + req.params.steamID + "...");
   let STEAM_ID = req.params.steamID;
+
   //get friends list. then iterate through each friend and compile a name and profile image
   //Replace the API key with the variable STEAM_API_KEY to keep keys secret
 
-  var FRIENDS_LIST_RESPONSE = [];
+  let FRIENDS_LIST_RESPONSE = [];
 
-  request('https://api.steampowered.com/ISteamUser/GetFriendList/v1/?key=' + STEAM_API_KEY + '&steamid=' + STEAM_ID, function (error, response, fListBody) {
-    if (!error && response.statusCode == 200) {
+  request('https://api.steampowered.com/ISteamUser/GetFriendList/v1/?key=' + STEAM_API_KEY + '&steamid=' + STEAM_ID)
+    .then(function (fListBody) {
+      return JSON.parse(fListBody).friendslist.friends
+    })
+    .then(function (fListBody) {
 
-      let FRIENDS_LIST = JSON.parse(fListBody).friendslist.friends;
-      // res.send(fListBody);
+      Promise.all(fListBody.map(element => {
+        return request('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=' + STEAM_API_KEY + '&steamids=' + element.steamid);
+      })).then(results => {
 
-      // unnest these loops
+        results.forEach(e => {
+          FRIENDS_LIST_RESPONSE.push(JSON.parse(e).response.players);
+        });
 
-      FRIENDS_LIST.forEach(element => {
-        let thisID = element.steamid;
-        // console.log(thisID);
+      }).then(() => {
+        res.send(FRIENDS_LIST_RESPONSE);
 
-        request('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=' + STEAM_API_KEY + '&steamids=' + thisID, function (error, response, infoBody) {
-          if (!error && response.statusCode == 200) {
+      }).catch(err => {
+        console.log(err);
 
-            let playerInfo = JSON.parse(infoBody);
-            // console.log(JSON.parse(infoBody).response.players[0].avatar);
-
-            let name = playerInfo.response.players[0].personaname;
-            //can use avatarmedium or avatarfull here for avatar size
-            let avatar = playerInfo.response.players[0].avatar;
-
-            var entry = {
-              "steamid": element.steamid,
-              "relationship": element.relationship,
-              "friend_since": element.friend_since,
-              "name": name,
-              "avatar": avatar
-            };
-
-            return entry;
-            //THIS CONSOLE LOG ENTRY SHOW EVERYTHING POPULATED FOR THAT ENTRY
-            // console.log(entry);
-            // FRIENDS_LIST_RESPONSE.push(entry);
-
-          }
-        }).then((entry) => {
-          FRIENDS_LIST_RESPONSE.push(entry);
-        })
       });
-    }
-  }).then((i) => {
-    console.log("thennnnnn2");
-    res.send(FRIENDS_LIST_RESPONSE)
-  });
+
+    })
+    .catch(function (err) {
+      console.log("GetFriendList v1 API Fetch has failed :(")
+    });
 
 })
-
 
 
 //Default route, always keep this at the bottom
