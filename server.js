@@ -60,6 +60,7 @@ app.get("/friends/:steamID", (req, res) => {
     })
     .catch(function (err) {
       console.log("GetFriendList v1 API Fetch has failed :(")
+      console.log(err)
     });
 
 })

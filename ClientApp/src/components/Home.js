@@ -66,7 +66,7 @@ export class Home extends Component {
                             <br />
                             <InputGroup className="mb-3">
                                 <FormControl
-                                    placeholder="Example: 76561197960287930"
+                                    placeholder="Example: 76561198028109433"
                                     type="text"
                                     value={this.state.INPUT_STEAM_ID}
                                     onChange={this.updateInput}
@@ -92,7 +92,7 @@ export class Home extends Component {
 
 
                         </Jumbotron>
-                            <footer>Example ID: 76561197960287930</footer>
+                            <footer>Example ID: 76561198028109433</footer>
                         </Col>
                     </Row>
                 </Container>
