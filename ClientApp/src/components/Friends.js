@@ -8,6 +8,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+
 export class Friends extends Component {
     static displayName = Friends.name;
 
@@ -18,6 +19,15 @@ export class Friends extends Component {
             INPUT_STEAM_ID: "",
             STEAM_ID_LIST: [],
         };
+    }
+
+    componentDidMount() {
+        //Grab the STEAM ID query parameter
+        //This is a really ugly way of doing it but will work for now
+        console.log("steamID: " + window.location.search.substring(4));
+        let steamID = window.location.search.substring(4);
+
+
     }
 
     updateInput(event) {
