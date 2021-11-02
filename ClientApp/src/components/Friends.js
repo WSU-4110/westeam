@@ -27,7 +27,26 @@ export class Friends extends Component {
         console.log("steamID: " + window.location.search.substring(4));
         let steamID = window.location.search.substring(4);
 
+        //add in AJAX API call to fetch friends list.
+        fetch("http://localhost:3001/friends/12345")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    // this.setState({
+                    //     isLoaded: true,
+                    //     items: result.items
+                    // });
+                    console.log(result);
+                },
 
+                (error) => {
+                    // this.setState({
+                    //     isLoaded: true,
+                    //     error
+                    // });
+                    console.log("API Fetch error has occured")
+                }
+            )
     }
 
     updateInput(event) {
