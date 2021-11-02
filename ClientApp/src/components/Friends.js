@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import Jumbotron from "react-bootstrap/Jumbotron";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
@@ -88,29 +88,25 @@ export class Friends extends Component {
                 <Container className="p-1">
                     <Row>
                         <Col>
-                            <InputGroup className="mb-1">
-                                <InputGroup.Prepend>
-                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                </InputGroup.Prepend>
-                                <ListGroup.Item>Friend 1</ListGroup.Item>
+                            <Suspense fallback={<h1>Fetching Friends...</h1>}>
+                                <div >
+                                    {this.state.FRIENDS_LIST.map((item) => {
+                                        return (
 
-                            </InputGroup>
-
-                            <div >
-                                {this.state.FRIENDS_LIST.map((item) => {
-                                    return (
-                                        <>
-                                            <InputGroup className="mb-1">
-                                                <InputGroup.Prepend>
-                                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                                </InputGroup.Prepend>
-                                                <ListGroup.Item>{item[0].personaname}</ListGroup.Item>
-                                            </InputGroup>
-                                        </>
-                                    );
-                                })}
-                            </div>
-
+                                            <>
+                                                <InputGroup className="mb-1">
+                                                    <InputGroup.Prepend>
+                                                        <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                                    </InputGroup.Prepend>
+                                                    <ListGroup.Item>
+                                                        <img src={item[0].avatar}></img>
+                                                        {item[0].personaname}</ListGroup.Item>
+                                                </InputGroup>
+                                            </>
+                                        );
+                                    })}
+                                </div>
+                            </Suspense>
                         </Col>
                         <Col xs={8}>                    <Jumbotron>
                             <h1 className="header">
