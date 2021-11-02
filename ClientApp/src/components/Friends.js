@@ -18,6 +18,7 @@ export class Friends extends Component {
         this.state = {
             INPUT_STEAM_ID: "",
             STEAM_ID_LIST: [],
+            FRIENDS_LIST: [],
         };
     }
 
@@ -27,7 +28,25 @@ export class Friends extends Component {
         console.log("steamID: " + window.location.search.substring(4));
         let steamID = window.location.search.substring(4);
 
+        //add in AJAX API call to fetch friends list.
+        fetch("http://localhost:3001/friends/" + steamID)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        FRIENDS_LIST: result,
+                    });
+                    console.log(this.state.FRIENDS_LIST);
+                },
 
+                (error) => {
+                    // this.setState({
+                    //     isLoaded: true,
+                    //     error
+                    // });
+                    console.log("API Fetch error has occured")
+                }
+            )
     }
 
     updateInput(event) {
@@ -76,26 +95,21 @@ export class Friends extends Component {
                                 <ListGroup.Item>Friend 1</ListGroup.Item>
 
                             </InputGroup>
-                            <InputGroup className="mb-1">
-                                <InputGroup.Prepend>
-                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                </InputGroup.Prepend>
-                                <ListGroup.Item>Friend 2</ListGroup.Item>
 
-                            </InputGroup>
-                            <InputGroup className="mb-1">
-                                <InputGroup.Prepend>
-                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                </InputGroup.Prepend>
-                                <ListGroup.Item>Friend 3</ListGroup.Item>
-
-                            </InputGroup>
-                            <InputGroup className="mb-1">
-                                <InputGroup.Prepend>
-                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                </InputGroup.Prepend>
-                                <ListGroup.Item>Friend 4</ListGroup.Item>
-                            </InputGroup>
+                            <div >
+                                {this.state.FRIENDS_LIST.map((item) => {
+                                    return (
+                                        <>
+                                            <InputGroup className="mb-1">
+                                                <InputGroup.Prepend>
+                                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                                </InputGroup.Prepend>
+                                                <ListGroup.Item>{item[0].personaname}</ListGroup.Item>
+                                            </InputGroup>
+                                        </>
+                                    );
+                                })}
+                            </div>
 
                         </Col>
                         <Col xs={8}>                    <Jumbotron>
