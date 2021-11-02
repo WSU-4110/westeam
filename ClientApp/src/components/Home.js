@@ -60,9 +60,9 @@ export class Home extends Component {
                 <Container className="p-1">
                     <Row>
                         <Col xs={8}>                    <Jumbotron>
-                            <h1 className="header">
+                            <h2 className="header">
                                 Enter Your Steam ID
-                            </h1>
+                            </h2>
                             <br />
                             <InputGroup className="mb-3">
                                 <FormControl
@@ -92,7 +92,7 @@ export class Home extends Component {
 
 
                         </Jumbotron>
-                            Example ID: 76561197960287930
+                            <footer>Example ID: 76561197960287930</footer>
                         </Col>
                     </Row>
                 </Container>

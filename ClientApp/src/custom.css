@@ -4,7 +4,7 @@ a {
 }
 
 code {
-  color: #E01A76;
+   color: #E01A76;
 }
 
 .btn-primary {
@@ -18,16 +18,16 @@ div{
 }
 
 header{
-  background-color: rgb(114, 114, 180);
-}
-
-h1 Home Page{
-  color: white;
+  background-color: rgb(62, 62, 112);
 }
 
 h1{
+  color: white;
+}
+
+h2 {
   color: black;
-  font:bold;
+  font: bold;
 }
 
 body{
@@ -35,6 +35,10 @@ body{
 }
 
 NavLink{
+  color: white;
+}
+
+footer{
   color: white;
 }
 
