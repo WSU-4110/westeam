@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Chat } from './Chat';
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -58,53 +59,19 @@ export class Home extends Component {
                 <h1>Home Page</h1>
                 <Container className="p-1">
                     <Row>
-                        <Col>
-                            <InputGroup className="mb-1">
-                                <InputGroup.Prepend>
-                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                </InputGroup.Prepend>
-                                <ListGroup.Item>Friend 1</ListGroup.Item>
-
-                            </InputGroup>
-                            <InputGroup className="mb-1">
-                                <InputGroup.Prepend>
-                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                </InputGroup.Prepend>
-                                <ListGroup.Item>Friend 2</ListGroup.Item>
-
-                            </InputGroup>
-                            <InputGroup className="mb-1">
-                                <InputGroup.Prepend>
-                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                </InputGroup.Prepend>
-                                <ListGroup.Item>Friend 3</ListGroup.Item>
-
-                            </InputGroup>
-                            <InputGroup className="mb-1">
-                                <InputGroup.Prepend>
-                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                </InputGroup.Prepend>
-                                <ListGroup.Item>Friend 4</ListGroup.Item>
-                            </InputGroup>
-
-                        </Col>
                         <Col xs={8}>                    <Jumbotron>
-                            <h1 className="header">
-                                Manually Enter Friends ID
-                            </h1>
+                            <h2 className="header">
+                                Enter Your Steam ID
+                            </h2>
                             <br />
                             <InputGroup className="mb-3">
                                 <FormControl
-                                    placeholder="Enter SteamID or Steam CommunityID or Profile URL"
+                                    placeholder="Example: 76561198028109433"
                                     type="text"
                                     value={this.state.INPUT_STEAM_ID}
                                     onChange={this.updateInput}
                                 />
-                                <InputGroup.Append>
-                                    <Button variant="outline-secondary"
-                                        onClick={() => this.addItem()}
-                                        disabled={!this.state.INPUT_STEAM_ID.length}>Add</Button>
-                                </InputGroup.Append>
+
                             </InputGroup>
                             <br />
 
@@ -120,9 +87,16 @@ export class Home extends Component {
                                     );
                                 })}
                             </ListGroup>
-                        </Jumbotron></Col>
+                            {/* <Button href="friends">Submit</Button> */}
+                            <Button href={"friends?id=" + this.state.INPUT_STEAM_ID}>Submit</Button>
+
+
+                        </Jumbotron>
+                            <footer>Example ID: 76561198028109433</footer>
+                        </Col>
                     </Row>
                 </Container>
+                <Chat />
             </div>
         );
     }
