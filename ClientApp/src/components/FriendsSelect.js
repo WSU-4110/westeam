@@ -52,6 +52,12 @@ import { get } from 'jquery';
     
 }
 */
+
+// Homework 4 Muneeb Khan
+/* For My Design pattern I am using decorator to create smaller objects for selecting 
+friends based on their ID, date since friend, and games they have */
+
+// This class will get the ID of the friends
 class FriendsList{
     constructor(friendslist) {
     super();
@@ -61,19 +67,13 @@ class FriendsList{
     
 }
 
-add(friends);{
-    var i;
-    var max;
-    for (i = 0; i < max; i++){
-    if (friendslist) < this.friendslist {
-        this.friendslistitems[i];       
-    }
-    else {
-        console.log("Failed to get list")
-    }
-}
+// This function will loop through the items of IDs
+FriendsList.prototype.decorate = function(friendslist){
+    this.friendslistitems.push(friendslist);
 }
 
+
+// This class will get the time since this ID was the users friend
 class TimeSinceFriend{
     constructor(date) {
     super();
@@ -82,16 +82,12 @@ class TimeSinceFriend{
     }
 }
 
-add(date);{
-    var i;
-    var max;
-    for (i = 0; i < max; i++) {
-        if (date) < this.date {
-            this.dateitem[i];
-        }
-    }
+// This function will loop through the list of dates in friends list
+TimeSinceFriend.prototype.decorate = function(date){
+    this.dateitem.push(date)
 }
 
+// This function will get the list of games each friend has
 class FriendsGames{
     constructor(gameslist){
     super();
@@ -100,12 +96,7 @@ class FriendsGames{
     }
 }
 
-add(gameslist);{
-    var i;
-    var max;
-    for (i = 0; i < max; i++){
-        if (gameslist) < this.gameslist{
-            this.gameslistitem[i];
-        }
-    }
+// This function will loop through the list of items of games in each friends game list
+FriendsGames.prototype.decorate = function(gameslist){
+    this.gameslistitem.push(gameslist)
 }
