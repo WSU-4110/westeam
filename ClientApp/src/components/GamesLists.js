@@ -9,6 +9,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { calculateObjectSize } from 'bson';
 
+const express = require("express");
+const morgan = require("morgan");
+const app = express();
+const routes = require("./routes/api");
+const cors = require('cors')
+const request = require('request-promise');
+const { info } = require("console");
+
 /*require("dotenv").config();
 const STEAM_API_KEY = process.env.STEAM_API_KEY;
 
@@ -86,7 +94,6 @@ export class GamesList extends Component{
             }
         }
 
-        return commonGames; // this should hopefully work
+        return commonGames; // this should hopefully work. Hopefully.
     }
 }
-
