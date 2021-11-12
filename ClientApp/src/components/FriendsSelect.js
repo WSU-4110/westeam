@@ -58,25 +58,25 @@ import { get } from 'jquery';
 friends based on their ID, date since friend, and games they have */
 
 // This class will get the ID of the friends
+
 class FriendsList{
-    constructor(friendslist) {
-    super();
+    constructor(friendslist, names) {
     this.friendslist = friendslist;
     this.friendslistitems = [];
+    this.names = names;
     }
     
 }
 
 // This function will loop through the items of IDs
 FriendsList.prototype.decorate = function(friendslist){
-    this.friendslistitems.push(friendslist);
+    this.friendslistitems.push(friendslist, names);
 }
 
 
 // This class will get the time since this ID was the users friend
 class TimeSinceFriend{
     constructor(date) {
-    super();
     this.date = date;
     this.dateitem = [];
     }
@@ -90,7 +90,6 @@ TimeSinceFriend.prototype.decorate = function(date){
 // This function will get the list of games each friend has
 class FriendsGames{
     constructor(gameslist){
-    super();
     this.gameslist = gameslist;
     this.gameslistitem = [];
     }
