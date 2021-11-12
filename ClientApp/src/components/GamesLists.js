@@ -80,6 +80,7 @@ export class GamesList extends Component{
 
         // got thru the list of all owned games, and look for dupilcates.
         // if number of duplicates is the same as totalUser, add to commonGames
+        // this is horribly inefficient
         for(let i = 0; i < totalGames; i++){
             var ownerCount = 0;
             for(let j = i; j < totalGames; j++){
