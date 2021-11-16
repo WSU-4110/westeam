@@ -81,6 +81,31 @@ export class Friends extends Component {
         this.setState({ STEAM_ID_LIST: updatedList });
     }
 
+    addSelectedFriend(id) {
+        console.log(id + " added ");
+        let newEntry = {
+            id: 1 + Math.random(),
+            value: id,
+        };
+
+        const list = [...this.state.STEAM_ID_LIST];
+
+        list.push(newEntry);
+
+        this.setState({
+            INPUT_STEAM_ID: "",
+            STEAM_ID_LIST: list
+        });
+    }
+
+    submitFriends(sub) {
+        let str = ""
+        sub.forEach(e => {
+            str = str.concat("-", e.value)
+        });
+        return str;
+    }
+
     render() {
         return (
             <div>
@@ -89,14 +114,17 @@ export class Friends extends Component {
                     <Row>
                         <Col>
                             <Suspense fallback={<h1>Fetching Friends...</h1>}>
+                                <Button variant="success" onClick={console.log("hello worls")}>Primary</Button>
                                 <div >
                                     {this.state.FRIENDS_LIST.map((item) => {
                                         return (
-
                                             <>
-                                                <InputGroup className="mb-1">
+                                                <InputGroup className="mb-1" steamID={item[0].steamid}>
                                                     <InputGroup.Prepend>
-                                                        <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                                        {/* <InputGroup.Checkbox aria-label="Checkbox for following text input" onClick={this.addSelectedFriend("hello worldz")} /> */}
+                                                        <Button onClick={() => this.addSelectedFriend(item[0].steamid)}
+                                                            variant="success"
+                                                            style={{ float: "right" }}>Add</Button>
                                                     </InputGroup.Prepend>
                                                     <ListGroup.Item>
                                                         <img src={item[0].avatar}></img>
@@ -104,7 +132,7 @@ export class Friends extends Component {
                                                 </InputGroup>
                                             </>
                                         );
-                                    })}
+                                    }, this)}
                                 </div>
                             </Suspense>
                         </Col>
@@ -140,6 +168,7 @@ export class Friends extends Component {
                                     );
                                 })}
                             </ListGroup>
+                            <Button href={"output?id=" + this.submitFriends(this.STEAM_INPUT_LIST)}>Submit</Button>
                         </Jumbotron></Col>
                     </Row>
                 </Container>
