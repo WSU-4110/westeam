@@ -98,13 +98,13 @@ export class Friends extends Component {
         });
     }
 
-    submitFriends(sub) {
-        let str = ""
-        sub.forEach(e => {
-            str = str.concat("-", e.value)
-        });
-        return str;
-    }
+    // submitFriends(sub) {
+    //     let str = ""
+    //     sub.forEach(e => {
+    //         str = str.concat("-", e.value)
+    //     });
+    //     return str;
+    // }
 
     render() {
         return (
@@ -168,7 +168,7 @@ export class Friends extends Component {
                                     );
                                 })}
                             </ListGroup>
-                            <Button href={"output?id=" + this.submitFriends(this.STEAM_INPUT_LIST)}>Submit</Button>
+                            {/* <Button href={"output?id=" + this.submitFriends(this.STEAM_INPUT_LIST)}>Submit</Button> */}
                         </Jumbotron></Col>
                     </Row>
                 </Container>
