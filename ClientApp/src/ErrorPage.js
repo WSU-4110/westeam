@@ -5,7 +5,7 @@ const ErrorElement = document.getElementById('error')
 form.addEventListener('submit', (e) => {
     // ErrorMessage allows to push comments for errors
     let ErrorMessage = []
-    
+
     // If user does not enter anything, an error will generate
     if (SteamID.value === "" || SteamID.value == null) {
         ErrorMessage.push('Steam ID is required')
@@ -15,8 +15,14 @@ form.addEventListener('submit', (e) => {
     if (SteamID.value.length != 17) {
         ErrorMessage.push('Invalid Steam ID!: Please try again')
     }
-    // If Steam ID is a character
+    
+    // If Steam ID is a letter (A,B,C...etc)
     if (SteamID.value.char) {
+        ErrorMessage.push('Invalid Steam ID!: Please try again')
+    }
+
+    // If Steam ID is a special character (!,$,\...etc)
+    if (SteamID.value.string) {
         ErrorMessage.push('Invalid Steam ID!: Please try again')
     }
 
