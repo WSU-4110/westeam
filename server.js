@@ -65,6 +65,54 @@ app.get("/friends/:steamID", (req, res) => {
 
 })
 
+app.get("/test", (req, res) => {
+
+  const testSteamIds = ["76561198170048678", "76561198028109433", "76561197960287930"];
+  const TEST_ID = "76561198028109433"
+  const STEAM_API_KEY = process.env.STEAM_API_KEY;
+  request('https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key='
+    + STEAM_API_KEY + '&include_played_free_games=1&format=json&steamid=' + TEST_ID).then(function (gamesListBody) {
+      return JSON.parse(gamesListBody).response.games;
+    }).then((gamesListBody) => {
+      console.log(gamesListBody);
+      res.send(gamesListBody)
+
+    });
+
+  // getCommonGames(SteamIdArray){
+  //   var ownedGames;
+  //   var commonGames;
+  //   var totalUsers = SteamIdArray.length;
+  //   var totalGames = Object.keys(ownedGames).length;
+
+  //   // parse the full games list in ownedGames for each steamId
+  //   for (let i = 0; i < totalUsers; i++) {
+  //     ownedGames = getGamesList(SteamIdArray[i]);
+  //   }
+
+  //   // got thru the list of all owned games, and look for dupilcates.
+  //   // if number of duplicates is the same as totalUser, add to commonGames
+  //   // this is horribly inefficient
+  //   for (let i = 0; i < totalGames; i++) {
+  //     var ownerCount = 0;
+  //     for (let j = i; j < totalGames; j++) {
+  //       if (ownedGames[i].appid === ownedGames[j].appid) {
+  //         ownerCount++;
+  //       }
+
+  //       if (ownerCounter === totalUsers) {
+  //         commonGames = JSON.parse(ownedGames[i]);
+  //         break; // no need to keep searching if all owners have game
+  //       }
+  //     }
+  //   }
+
+  //   return commonGames; // this should hopefully work. Hopefully.
+  // }
+});
+
+
+
 
 //Default route, always keep this at the bottom
 app.get("/*", (req, res) => {
