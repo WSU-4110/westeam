@@ -40,6 +40,9 @@ export class NavMenu extends Component {
                   <NavLink tag={Link} className="text-white" to="/output">Output</NavLink>
                 </NavItem>
                 <NavItem>
+                   <NavLink tag={Link} className="text-white" to="/AboutUs">AboutUs</NavLink>
+                </NavItem>
+                <NavItem>
                   <NavLink tag={Link} className="text-dark" ><img src="loginsteamlarge.png" href="https://store.steampowered.com/login/" /></NavLink>
                 </NavItem>
               </ul>
