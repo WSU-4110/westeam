@@ -232,3 +232,4 @@ _Pvt_Extensions
 .fake/
 *.csproj
 Properties/launchSettings.json
+.env
