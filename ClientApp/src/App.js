@@ -6,7 +6,7 @@ import { FetchData } from './components/FetchData';
 import { Login } from './components/Login';
 import { Friends } from './components/Friends';
 import { Output } from './components/Output';
-
+import { AboutUs } from './components/AboutUs';
 import './custom.css'
 
 export default class App extends Component {
@@ -19,6 +19,7 @@ export default class App extends Component {
         <Route exact path='/friends' component={Friends} />
         <Route exact path='/output' component={Output} />
         <Route exact path='/login' component={Login} />
+        <Route exact path='/aboutus' component={AboutUs} />
         <Route path='/fetch-data' component={FetchData} />
       </Layout>
     );

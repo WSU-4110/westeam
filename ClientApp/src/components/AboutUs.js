@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 export class AboutUs extends Component {
     static displayName = AboutUs.name;
 
@@ -18,7 +19,7 @@ export class AboutUs extends Component {
             best games we would reccommend to them based on what their friends play.</p>
             <br/>
 
-            <h2>Getting Started</h2>
+            <h3>Getting Started</h3>
             <br/>
 
             <p>In order to get started with using our website the user would first need to make their steam account public, 
@@ -37,13 +38,13 @@ export class AboutUs extends Component {
             </ul>
             <br/>
 
-            <h2>Login Page</h2>
+            <h3>Login Page</h3>
             <br/>
 
             <p> On the Home Page there will be box asking to "Enter the Steam ID. The user will provide their ID and click to submit.</p>
             <br/>
 
-            <h2>Getting Friends List</h2>
+            <h3>Getting Friends List</h3>
             <br/>
 
             <p>After the user has entered their ID information they will be directed to the friends
@@ -56,7 +57,7 @@ export class AboutUs extends Component {
             friends account will be added to the list.</p>
             <br/>
 
-            <h2>Reccommendations</h2>
+            <h3>Reccommendations</h3>
             <br/>
 
             <p>After the user has selected their friends and submitted the website will retrieve the
@@ -81,8 +82,6 @@ export class AboutUs extends Component {
             <li>7. The website will then pull all the games owned by you and your friends.</li>
             </ul>
             <br/>
-
-            {contents}
           </div>
         );
       }
