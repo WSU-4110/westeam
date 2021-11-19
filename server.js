@@ -70,7 +70,7 @@ app.get("/test", (req, res) => {
   const testSteamIds = ["76561198170048678", "76561198028109433", "76561197960287930"];
   const TEST_ID = "76561198028109433"
   const STEAM_API_KEY = process.env.STEAM_API_KEY;
-  request('https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key='
+  request('https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key='
     + STEAM_API_KEY + '&include_played_free_games=1&format=json&steamid=' + TEST_ID).then(function (gamesListBody) {
       return JSON.parse(gamesListBody).response.games;
     }).then((gamesListBody) => {
