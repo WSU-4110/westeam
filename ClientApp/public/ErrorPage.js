@@ -1,34 +1,44 @@
-const SteamID = document.getElementById('Steam ID')
-const form = document.getElementById('form')
-const ErrorElement = document.getElementById('error')
+const form = document.getElementById('form');
+const SteamID = document.getElementById('Steam ID');
 
 form.addEventListener('submit', (e) => {
-    // ErrorMessage allows to push comments for errors
-    let ErrorMessage = []
+    e.preventDefault();
 
-    // If user does not enter anything, an error will generate
-    if (SteamID.value === "" || SteamID.value == null) {
-        ErrorMessage.push('Steam ID is required')
-    }
+    checkInputs();
+});
 
-    // If length of Steam ID is not long enough
-    if (SteamID.value.length != 17) {
-        ErrorMessage.push('Invalid Steam ID!: Please try again')
-    }
-    
-    // If Steam ID is a letter (A,B,C...etc)
-    if (SteamID.value.char) {
-        ErrorMessage.push('Invalid Steam ID!: Please try again')
-    }
+function checkInputs() {
+    // get value from the object
+    const SteamID_Value = SteamID.value.trim();
 
-    // If Steam ID is a special character (!,$,\...etc)
-    if (SteamID.value.string) {
-        ErrorMessage.push('Invalid Steam ID!: Please try again')
+    if(SteamID_Value === '') {
+        // Show error message
+        // Add error class
+        setErrorFor(SteamID, 'Steam ID cannot be blank'); // Blank ID
+    } else if(!SteamID(SteamID_Value)) {
+        setErrorFor(SteamID, 'Steam ID is invalid') // Incorrect ID
     }
+    else if(SteamID_Value != 17) {
+        setErrorFor(SteamID, 'Steam ID is invalid') // Incorrect digits
+    }
+    else {
+        // Add success class
+        setSuccessFor(SteamID);
+    }
+}
 
-    // Detects any errors with Steam ID that is entered
-    if (ErrorMessage.length > 0) {
-        e.preventDefault()
-        ErrorElement.innerText = ErrorMessage.join(',')
-    }
-})
+function setErrorFor(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+
+    // Add error message inside small
+    small.innerText = message;
+
+    // Add error class
+    formControl.className = 'form-control error';
+}
+
+function setSuccessFor(input) {
+    const formControl = input.parentElement;
+    formControl.className = 'form-control success';
+}
