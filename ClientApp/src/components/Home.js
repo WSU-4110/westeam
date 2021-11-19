@@ -53,6 +53,14 @@ export class Home extends Component {
         this.setState({ STEAM_ID_LIST: updatedList });
     }
 
+    test() {
+        return (
+            <div>
+                test
+            </div>
+        )
+    }
+
     render() {
         return (
             <div>
@@ -93,6 +101,7 @@ export class Home extends Component {
 
                         </Jumbotron>
                             <footer>Example ID: 76561198028109433</footer>
+                            {this.test()}
                         </Col>
                     </Row>
                 </Container>
