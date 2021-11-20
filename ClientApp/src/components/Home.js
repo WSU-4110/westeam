@@ -102,6 +102,11 @@ export class Home extends Component {
                         </Jumbotron>
                             <footer>Example ID: 76561198028109433</footer>
                             {this.test()}
+                            <h6>Select a theme</h6>
+                            <select>
+                                <option value="lightmode">lightmode</option>
+                                <option value="darkmode">darkmode</option>
+                            </select>
                         </Col>
                     </Row>
                 </Container>
