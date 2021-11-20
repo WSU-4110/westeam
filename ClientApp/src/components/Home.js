@@ -28,7 +28,9 @@ export class Home extends Component {
                         </Col>
                     </Row>
                 </Container>
+                
                 <Chat />
+                
             </div>
         );
     }
