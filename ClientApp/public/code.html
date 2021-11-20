@@ -1,0 +1,24 @@
+<!-- This .html file works with the .css and .js files to make sure
+that the right Steam ID is entered-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>westeam</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class ="label">Enter Steam ID</h1>
+        <form class="login_form" action="home.html" method="post" name="form"
+        onsubmit="return validated()">
+            <div class="font">Enter Steam ID</div>
+            <input autocomplete="off" type="text" name="Steam ID">
+            <div id="Steam ID error">Enter your Steam ID</div>
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+    <script src="Error.js"></script>
+</body>
+</html>
