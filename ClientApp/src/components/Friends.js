@@ -27,6 +27,7 @@ export class Friends extends Component {
         //This is a really ugly way of doing it but will work for now
         console.log("steamID: " + window.location.search.substring(4));
         let steamID = window.location.search.substring(4);
+        this.addSelectedFriend(steamID);
 
         //add in AJAX API call to fetch friends list.
         fetch("http://localhost:3001/friends/" + steamID)
@@ -98,13 +99,16 @@ export class Friends extends Component {
         });
     }
 
-    // submitFriends(sub) {
-    //     let str = ""
-    //     sub.forEach(e => {
-    //         str = str.concat("-", e.value)
-    //     });
-    //     return str;
-    // }
+    submitFriends() {
+        let str = ""
+        let idList = this.state.STEAM_ID_LIST;
+
+        idList.forEach(e => {
+            str = str.concat("-", e.value)
+        });
+        str = str.substring(1);
+        return str;
+    }
 
     render() {
         return (
@@ -114,7 +118,6 @@ export class Friends extends Component {
                     <Row>
                         <Col>
                             <Suspense fallback={<h1>Fetching Friends...</h1>}>
-                                <Button variant="success" onClick={console.log("hello worls")}>Primary</Button>
                                 <div >
                                     {this.state.FRIENDS_LIST.map((item) => {
                                         return (
@@ -168,10 +171,13 @@ export class Friends extends Component {
                                     );
                                 })}
                             </ListGroup>
-                            {/* <Button href={"output?id=" + this.submitFriends(this.STEAM_INPUT_LIST)}>Submit</Button> */}
-                        </Jumbotron></Col>
+                            <Button href={"output?id=" + this.submitFriends()}>Submit</Button>
+                            {/* <Button onClick={() => this.submitFriends()}>Submit</Button> */}
+                        </Jumbotron>
+                        </Col>
                     </Row>
                 </Container>
+
             </div>
         );
     }

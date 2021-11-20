@@ -6,6 +6,32 @@ export class Output extends Component {
 
     constructor() {
         super();
+        this.state = {
+            COMMON_GAMES: [],
+        };
+    }
+
+    componentDidMount() {
+        //Grab the STEAM ID query parameter
+        //This is a really ugly way of doing it but will work for now
+        console.log("steamID: " + window.location.search.substring(4));
+        let steamID = window.location.search.substring(4);
+
+        //add in AJAX API call to fetch friends list.
+        fetch("http://localhost:3001/output/" + steamID)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        COMMON_GAMES: result,
+                    });
+                    console.log(this.state.COMMON_GAMES);
+                },
+
+                (error) => {
+                    console.log("API Fetch error has occured")
+                }
+            )
     }
     render() {
         return (

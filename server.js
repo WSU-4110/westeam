@@ -65,19 +65,42 @@ app.get("/friends/:steamID", (req, res) => {
 
 })
 
-app.get("/test", (req, res) => {
+
+//test id 76561198028109433-76561199182670143 
+app.get("/output/:steamID", (req, res) => {
+  //get the data from the url request
+  console.log("Getting Common Games of " + req.params.steamID + "...");
+  let urlParamReq = req.params.steamID;
+
+  //parse request steam ids into an array for each user to find games
+  let STEAM_ID_LIST = urlParamReq.split("-");
 
   const testSteamIds = ["76561198170048678", "76561198028109433", "76561197960287930"];
   const TEST_ID = "76561198028109433"
-  const STEAM_API_KEY = process.env.STEAM_API_KEY;
-  request('https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key='
-    + STEAM_API_KEY + '&include_played_free_games=1&format=json&steamid=' + TEST_ID).then(function (gamesListBody) {
-      return JSON.parse(gamesListBody).response.games;
-    }).then((gamesListBody) => {
-      console.log(gamesListBody);
-      res.send(gamesListBody)
 
-    });
+  let gamesListData = [];
+
+  Promise.all(STEAM_ID_LIST.map(element => {
+    return request('https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key='
+      + STEAM_API_KEY + '&include_played_free_games=1&format=json&steamid=' + element);
+  })).then(results => {
+    results.forEach(e => {
+      gamesListData.push(JSON.parse(e));
+    })
+  }).then(() => {
+    let searchList = gamesListData.slice(1)
+    let keyList = gamesListData[0]
+
+    searchList.forEach(e => {
+
+      e.response.games.forEach(e2 => {
+        console.log(e2.appid)
+      })
+    })
+  }).then(() => {
+    res.send(gamesListData);
+  })
+
 
   // getCommonGames(SteamIdArray){
   //   var ownedGames;
