@@ -74,7 +74,7 @@ export class Chat extends Component {
     render() {
         return (
             <div>
-                <div class="chet">
+                <div class="chatText">
                     <h1>Chat</h1>
                 </div>
                 {/* Dynamic list will be based off the messages you get from realtime database */}

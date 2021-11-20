@@ -71,7 +71,7 @@ ul{
     min-width: fit-content;
     background-color: slategray;
 }
-.chet{
+.chatText{
   display: block;
   position: fixed;
   top: 75px;
