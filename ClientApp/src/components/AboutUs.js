@@ -22,8 +22,13 @@ export class AboutUs extends Component {
             <h1>About Us</h1>
             <br/>
 
-            <p>We are a company that is dedicated to helping our players finding the 
-            best games we would reccommend to them based on what their friends play.</p>
+            <img src="westeam-logo.png" alt="westeamlogo"></img>
+
+            <br/>
+
+
+            <p>We are a company of steam players ourselves that are dedicated to helping other players 
+            find the best games we would reccommend to them based on what their friends play.</p>
             <br/>
 
             <h3>Getting Started</h3>
@@ -36,7 +41,7 @@ export class AboutUs extends Component {
 
             <h3>Making the account public</h3>
             <ul>
-            <li>1. Go to your Steam Profile. Go to your Steam Profile by clicking your Username
+            <li>1. Go to your Steam Profile by clicking your Username
             at the top of the steam interface.</li>
             <li>2. Click the Edit Profile button.</li>
             <li>3. Go to my privacy settings.</li>
