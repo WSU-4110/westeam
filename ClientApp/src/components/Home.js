@@ -8,6 +8,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Chat } from './Chat';
+import { ErrorPage } from './ErrorPage';
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -93,6 +94,7 @@ export class Home extends Component {
 
                         </Jumbotron>
                             <footer>Example ID: 76561198028109433</footer>
+                            <ErrorPage />
                         </Col>
                     </Row>
                 </Container>

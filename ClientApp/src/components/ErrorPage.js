@@ -1,5 +1,4 @@
 import { Jumbotron } from "react-bootstrap";
-import { Home } from "./Home";
 
 const form = document.getElementById('form');
 const SteamID = document.getElementById('Steam ID');
