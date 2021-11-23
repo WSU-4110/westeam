@@ -143,6 +143,7 @@ export class Friends extends Component {
                             <h2 className="header">
                                 Manually Enter Friends STEAM ID
                             </h2>
+
                             <br />
                             <InputGroup className="mb-3">
                                 <FormControl
@@ -174,6 +175,15 @@ export class Friends extends Component {
                             <Button href={"output?id=" + this.submitFriends()}>Submit</Button>
                             {/* <Button onClick={() => this.submitFriends()}>Submit</Button> */}
                         </Jumbotron>
+                            <p>
+                                ExampleIDs:
+                                <br />
+                                76561198028109433
+                                <br />
+                                76561199182670143
+                                <br />
+                                76561198170048678
+                            </p>
                         </Col>
                     </Row>
                 </Container>

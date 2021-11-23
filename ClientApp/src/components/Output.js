@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Table from "react-bootstrap/Table";
+import Image from "react-bootstrap/Image";
 
 export class Output extends Component {
     static displayName = Output.name;
@@ -9,6 +10,7 @@ export class Output extends Component {
         this.state = {
             COMMON_GAMES: [],
             isLoaded: false,
+            DISPLAY: [],
         };
     }
 
@@ -22,6 +24,7 @@ export class Output extends Component {
         console.log("steamID: " + window.location.search.substring(4));
         let steamID = window.location.search.substring(4);
 
+        let displayTemp = []
         //add in AJAX API call to fetch friends list.
         fetch("http://localhost:3001/output/" + steamID)
             .then(res => res.json())
@@ -37,8 +40,26 @@ export class Output extends Component {
                     console.log("API Fetch error has occured")
                 }
             ).then(() => {
+
+                this.state.COMMON_GAMES.forEach(e => {
+                    // console.log(e.data.name)
+                    try {
+                        // displayTemp.push(e.data.name)
+                        displayTemp.push({
+                            name: e.data.name,
+                            img: e.data.header_image,
+                            app_id: e.data.steam_appid
+                        })
+
+                    } catch (error) {
+                        console.log(error)
+                    }
+
+                });
+            }).then(() => {
                 this.setState({
                     isLoaded: true,
+                    DISPLAY: displayTemp,
                 });
             })
     }
@@ -49,30 +70,24 @@ export class Output extends Component {
         else {
             return (
                 <div>
-                    <h1>Output Page</h1>
+                    <h1>Commonly Owned Games</h1>
 
                     <Table striped bordered hover>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th></th>
-                                <th>Name</th>
 
-                            </tr>
-                        </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td></td>
-                                <td>Otto</td>
-                            </tr>
-                            {this.state.COMMON_GAMES.map((item) => {
+
+                            {this.state.DISPLAY.map((item, i) => {
+
                                 return (
-                                    <tr>
-                                        poggies
-                                        {/* {(item.data.name) ? item.data.name : null} */}
-                                        {console.log(item.name)}
+
+                                    <tr key={i}>
+                                        <td>
+                                            <a href={"https://store.steampowered.com/app/" + item.app_id}><Image src={item.img}></Image></a>
+                                        </td>
+                                        <td>
+                                            <h2>{item.name}</h2></td>
                                     </tr>
+
                                 );
                             })}
                         </tbody>
