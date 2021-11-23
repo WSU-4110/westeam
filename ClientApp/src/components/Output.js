@@ -13,6 +13,10 @@ export class Output extends Component {
     }
 
     componentDidMount() {
+        this.loadData()
+    }
+
+    loadData() {
         //Grab the STEAM ID query parameter
         //This is a really ugly way of doing it but will work for now
         console.log("steamID: " + window.location.search.substring(4));
@@ -25,7 +29,6 @@ export class Output extends Component {
                 (result) => {
                     this.setState({
                         COMMON_GAMES: result,
-                        isLoaded: true
                     });
                     console.log(this.state.COMMON_GAMES);
                 },
@@ -33,10 +36,14 @@ export class Output extends Component {
                 (error) => {
                     console.log("API Fetch error has occured")
                 }
-            )
+            ).then(() => {
+                this.setState({
+                    isLoaded: true,
+                });
+            })
     }
     render() {
-        if (this.state.isLoaded == false || this.state.COMMON_GAMES.length == 0 || !this.state.COMMON_GAMES) {
+        if (this.state.isLoaded == false || this.state.COMMON_GAMES.length == 0) {
             return <div>Loading...</div>
         }
         else {
@@ -59,7 +66,6 @@ export class Output extends Component {
                                 <td></td>
                                 <td>Otto</td>
                             </tr>
-                            [0][400].data.name
                             {this.state.COMMON_GAMES.map((item) => {
                                 return (
                                     <tr>
