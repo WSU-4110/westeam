@@ -8,6 +8,7 @@ export class Output extends Component {
         super();
         this.state = {
             COMMON_GAMES: [],
+            isLoaded: false,
         };
     }
 
@@ -24,6 +25,7 @@ export class Output extends Component {
                 (result) => {
                     this.setState({
                         COMMON_GAMES: result,
+                        isLoaded: true
                     });
                     console.log(this.state.COMMON_GAMES);
                 },
@@ -34,38 +36,44 @@ export class Output extends Component {
             )
     }
     render() {
-        return (
-            <div>
-                <h1>Output Page</h1>
+        if (this.state.isLoaded == false || this.state.COMMON_GAMES.length == 0 || !this.state.COMMON_GAMES) {
+            return <div>Loading...</div>
+        }
+        else {
+            return (
+                <div>
+                    <h1>Output Page</h1>
 
-                <Table striped bordered hover>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th></th>
-                            <th>Name</th>
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th></th>
+                                <th>Name</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td></td>
-                            <td>Otto</td>
-                        </tr>
-                        [0][400].data.name
-                        {this.state.COMMON_GAMES.map((item) => {
-                            return (
-                                <tr>
-                                    poggies
-                                    {/* {(item.data.name) ? item.data.name : null} */}
-                                    {console.log(item.name)}
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </Table>
-            </div>
-        );
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td></td>
+                                <td>Otto</td>
+                            </tr>
+                            [0][400].data.name
+                            {this.state.COMMON_GAMES.map((item) => {
+                                return (
+                                    <tr>
+                                        poggies
+                                        {/* {(item.data.name) ? item.data.name : null} */}
+                                        {console.log(item.name)}
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </Table>
+                </div>
+            );
+        }
+
     }
 }
