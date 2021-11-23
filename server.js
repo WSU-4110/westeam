@@ -5,6 +5,7 @@ const routes = require("./routes/api");
 const cors = require('cors')
 const request = require('request-promise');
 const { info } = require("console");
+const { parse } = require("path/posix");
 
 
 //Get steam API key from .env file
@@ -66,7 +67,7 @@ app.get("/friends/:steamID", (req, res) => {
 })
 
 
-//test id 76561198028109433-76561199182670143 
+//test id 76561198028109433-76561199182670143-76561198170048678
 app.get("/output/:steamID", (req, res) => {
   //get the data from the url request
   console.log("Getting Common Games of " + req.params.steamID + "...");
@@ -74,9 +75,6 @@ app.get("/output/:steamID", (req, res) => {
 
   //parse request steam ids into an array for each user to find games
   let STEAM_ID_LIST = urlParamReq.split("-");
-
-  const testSteamIds = ["76561198170048678", "76561198028109433", "76561197960287930"];
-  const TEST_ID = "76561198028109433"
 
   let gamesListData = [];
 
@@ -89,16 +87,42 @@ app.get("/output/:steamID", (req, res) => {
     })
   }).then(() => {
     let searchList = gamesListData.slice(1)
-    let keyList = gamesListData[0]
+    let keyList = gamesListData[0].response.games
+
+    //List of all games not in the keyList
+    let searchListAppIds = []
+
+    //list of all games in the keyList
+    let keyListAppIds = []
 
     searchList.forEach(e => {
-
       e.response.games.forEach(e2 => {
-        console.log(e2.appid)
+        // console.log(e2.appid)
+        searchListAppIds.push(e2.appid)
       })
     })
-  }).then(() => {
-    res.send(gamesListData);
+
+    keyList.forEach(e => {
+      keyListAppIds.push(e.appid);
+    })
+    let commonGames = keyListAppIds.filter(value => searchListAppIds.includes(value));
+    console.log("common games: " + commonGames);
+    return commonGames
+
+  }).then((commonGames) => {
+
+    Promise.all(commonGames.map(e => {
+      return (request('https://store.steampowered.com/api/appdetails/?appids=' + e))
+    })).then((result => {
+      let parsedRes = []
+      result.forEach((value, index) => {
+        let comIndex = commonGames[index]
+        let p = JSON.parse(value)
+        parsedRes.push(p[comIndex])
+
+      });
+      res.send(parsedRes)
+    }))
   })
 
 
