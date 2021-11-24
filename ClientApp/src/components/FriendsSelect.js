@@ -1,15 +1,3 @@
-import React, { Component, Suspense } from 'react';
-import Jumbotron from "react-bootstrap/Jumbotron";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import ListGroup from "react-bootstrap/ListGroup";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { get } from 'jquery';
-import { ExpectationFailed } from 'http-errors';
-
 
 /*export class Friends extends Component {
     static displayName = Friends.name;
@@ -60,7 +48,7 @@ friends based on their ID, date since friend, and games they have */
 
 // This class will get the ID of the friends
 
-class FriendsList extends Component{
+class FriendsList{
     constructor(friendslist, names) {
     this.friendslist = friendslist;
     this.friendslistitems = [];
@@ -76,10 +64,15 @@ FriendsList.prototype.decorate = function(friendslist){
 
 }
 
-function tests (a,b) {
+function numbers(a,b) {
     return a + b;
 }
-module.exports = tests;
+module.exports = numbers;
+
+function numbers2(a,b) {
+    return (a*b);
+}
+module.exports = numbers2;
 
 // This class will get the time since this ID was the users friend
 class TimeSinceFriend{
@@ -97,9 +90,9 @@ TimeSinceFriend.prototype.decorate = function(date){
 
 function time(t){
     const times = t;
-    return 'Date:' = t;
+    return times;
 }
-module.exports =time; 
+module.exports = time; 
 
 // This function will get the list of games each friend has
 class FriendsGames{
@@ -116,6 +109,6 @@ FriendsGames.prototype.decorate = function(gameslist){
 
 function games(name){
     const gamename = name;
-    return 'Gamename:' + gamename;
+    return gamename;
 }
 module.exports = games;
