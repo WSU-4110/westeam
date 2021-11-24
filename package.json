@@ -2,8 +2,10 @@
   "name": "server",
   "version": "0.0.0",
   "private": true,
+  "main": "FriendsSelect.js",
   "scripts": {
     "start": "cd ClientApp/ && npm run build && cd ../ && node server",
+    "test": "jest",
     "dev": "nodemon server"
   },
   "dependencies": {
@@ -24,5 +26,20 @@
     "react-bootstrap": "^1.3.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.6"
-  }
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WSU-4110/westeam.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WSU-4110/westeam/issues"
+  },
+  "homepage": "https://github.com/WSU-4110/westeam#readme",
+  "description": ""
 }
