@@ -1,3 +1,4 @@
 node_modules
 .env
 ClientApp/src/components/FIREBASE_API_KEY.js
+ClientApp/src/components/FIREBASE.js
