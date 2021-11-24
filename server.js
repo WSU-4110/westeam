@@ -5,7 +5,9 @@ const routes = require("./routes/api");
 const cors = require('cors')
 const request = require('request-promise');
 const { info } = require("console");
+const GamesLists = import("./ClientApp/src/components/GamesLists.js");
 
+//GamesLists.getGamesList
 
 //Get steam API key from .env file
 //DO NOT EXPOSE API KEY TO GITHUB
@@ -65,6 +67,7 @@ app.get("/friends/:steamID", (req, res) => {
 
 })
 
+//GamesLists
 
 //Default route, always keep this at the bottom
 app.get("/*", (req, res) => {
@@ -92,7 +95,7 @@ var name = " ";
 var id = 0;
 var gameslist = " ";
 
-
+/*
 // Friends information
 var friendsname = " ";
 var friendsid = 0;
@@ -102,3 +105,4 @@ var friendsgames = " ";
 var getuserinfo = " ";
 var getfriendsinfo = " ";
 var returngames = " ";
+*/
