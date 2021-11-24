@@ -8,6 +8,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { get } from 'jquery';
+import { ExpectationFailed } from 'http-errors';
 
 
 /*export class Friends extends Component {
@@ -59,7 +60,7 @@ friends based on their ID, date since friend, and games they have */
 
 // This class will get the ID of the friends
 
-class FriendsList{
+class FriendsList extends Component{
     constructor(friendslist, names) {
     this.friendslist = friendslist;
     this.friendslistitems = [];
@@ -71,8 +72,14 @@ class FriendsList{
 // This function will loop through the items of IDs
 FriendsList.prototype.decorate = function(friendslist){
     this.friendslistitems.push(friendslist, names);
+
+
 }
 
+function tests (a,b) {
+    return a + b;
+}
+module.exports = tests;
 
 // This class will get the time since this ID was the users friend
 class TimeSinceFriend{
@@ -87,6 +94,13 @@ TimeSinceFriend.prototype.decorate = function(date){
     this.dateitem.push(date)
 }
 
+
+function time(t){
+    const times = t;
+    return 'Date:' = t;
+}
+module.exports =time; 
+
 // This function will get the list of games each friend has
 class FriendsGames{
     constructor(gameslist){
@@ -99,3 +113,9 @@ class FriendsGames{
 FriendsGames.prototype.decorate = function(gameslist){
     this.gameslistitem.push(gameslist)
 }
+
+function games(name){
+    const gamename = name;
+    return 'Gamename:' + gamename;
+}
+module.exports = games;

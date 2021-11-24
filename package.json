@@ -2,8 +2,10 @@
   "name": "server",
   "version": "0.0.0",
   "private": true,
+  "main": "FriendsSelect.js",
   "scripts": {
     "start": "cd ClientApp/ && npm run build && cd ../ && node server",
+    "test": "jest",
     "dev": "nodemon server"
   },
   "dependencies": {
