@@ -1,56 +1,106 @@
 ﻿
 import React, { Component } from 'react';
-import './Chat.css';
+
 import firebase from 'firebase/app';
-import 'firebase/auth';
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, set, onChildAdded } from "firebase/database";
+import { child, get, getDatabase, onChildAdded, ref, set } from "firebase/database";
+import 'firebase/auth';
+import { getAuth, onAuthStateChanged, signInAnonymously } from "firebase/auth";
+import ReactScrollableFeed from 'react-scrollable-feed'
+
 import { firebaseConfig } from './FIREBASE_API_KEY';
-
-
+import './Chat.css';
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
-
-
+const auth = getAuth();
+let currentUser;
 export class Chat extends Component {
+
     constructor() {
         super();
+
+        this.state = {};
+
+        signInAnonymously(auth)
+            .then(() => {
+                currentUser = auth.currentUser
+                this.setState({ userId: currentUser.uid })
+            })
+
+
+        // onAuthStateChanged(auth, (user) => {
+        //     if (user) {
+        //         this.setState({ userId: user.uid })
+        //     }
+        // });
+    }
+
+    componentWillMount() {
+        onChildAdded(ref(db, 'Chat/'), (newChat) => {
+            this.setState({ ...this.state, chatMessages: null });
+            const chatData = newChat.val();
+            const chatKey = newChat.key;
+            this.setState({ ...this.state, chatMessages: { ...this.state.chatMessages, chatKey: newChat.val() } });
+        });
+
+        this.getChatData();
+    }
+
+    getChatData() {
+        get(child(ref(getDatabase()), `Chat/`)).then((chatData) => {
+            if (chatData.exists()) {
+                this.setState({ ...this.state, chatMesages: chatData.val() });
+                console.log(chatData.val())
+            } else {
+                console.log("No data available");
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
     }
 
     sendMessage() {
-        let uniqueChatId = "userId+" + Date.now(); // Make this more unique
+        let uniqueChatId = Date.now().toString() + currentUser.uid;
         let message = {
-            messageBody: document.getElementById("msg").value, // get from the msg textarea
+            userId: currentUser.uid,
+            messageBody: document.getElementById("chatMessage").value,
             timeSent: (new Date()).toUTCString()
-            // add user info for chat bubble placement
         }
-
         set(ref(db, 'Chat/' + uniqueChatId), message);
-
-        document.getElementById("msg").value = "";
+        document.getElementById("chatMessage").value = "";
     }
 
-
     render() {
-        const chatRef = ref(db, 'Chat/');
-        onChildAdded(chatRef, (newChat) => {
-            const data = newChat.val();
-            console.log(data);
-        });
-
         return (
-            <div class="chat" id="myForm">
-                <h1>Chat</h1>
-
-
-                {/* Create a dynamic list of chat bubbles, left if other user, right if current user */}
+            <div>
+                <div class="chatText">
+                    <h1>Chat</h1>
+                </div>
                 {/* Dynamic list will be based off the messages you get from realtime database */}
-
-
-                <textarea id="msg" placeholder="Type message.." name="msg" required></textarea>
-
-                <button onClick={this.sendMessage} class="btnChat">Send</button>
+                <ReactScrollableFeed>
+                <div class="chatBox">
+                    {
+                        
+                        this.state.chatMesages && this.state.userId
+                            ? <ul id="chatBubbles">
+                                {
+                                    Object.keys(this.state.chatMesages).map(chatId => (
+                                        <li className={this.state.chatMesages[chatId].userId === this.state.userId ? 'me' : 'them'}>
+                                            {this.state.chatMesages[chatId].messageBody}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                            : <li> loading chat... </li>
+                            
+                    } 
+                </div>
+                </ReactScrollableFeed>
+                <div class="chat">
+                    <textarea id="chatMessage" placeholder="Type message.." name="msg" required></textarea>
+                    <button onClick={this.sendMessage} class="btnChat">Send</button>
+                </div>
             </div>
         )
     }
