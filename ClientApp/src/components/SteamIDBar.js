@@ -13,11 +13,9 @@ function AlertDismissibleExample() {
     if (show) {
         return (
             <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-                <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+                <Alert.Heading>Invalid Steam ID! Please try again</Alert.Heading>
                 <p>
-                    Change this and that and try again. Duis mollis, est non commodo
-                    luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                    Cras mattis consectetur purus sit amet fermentum.
+                    The Steam ID that you have entered is incorrect. Please try again.
                 </p>
             </Alert>
         );
