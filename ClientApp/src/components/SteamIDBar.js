@@ -81,7 +81,7 @@ export class SteamIDBar extends Component {
                             );
                         })}
                     </ListGroup>
-
+                    <Button href={"friends?id=" + this.state.INPUT_STEAM_ID}>Submit</Button>
 
                 </Jumbotron>
             </div>
