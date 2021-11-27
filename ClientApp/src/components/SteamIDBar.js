@@ -82,22 +82,6 @@ export class SteamIDBar extends Component {
         }
     }
 
-    setErrorFor(input, message) {
-        const formControl = input.parentElement;
-        const small = formControl.querySelector('small');
-
-        // Add error message inside small
-        small.innerText = message;
-
-        // Add error class
-        formControl.className = 'form-control error';
-    }
-
-    setSuccessFor(input) {
-        const formControl = input.parentElement;
-        formControl.className = 'form-control success';
-    }
-
     render() {
         return (
             <div>
