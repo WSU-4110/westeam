@@ -25,9 +25,6 @@ function AlertDismissibleExample() {
     return <Button onClick={() => setShow(true)}>Show Alert</Button>;
 }
 
-
-
-
 export class SteamIDBar extends Component {
     constructor() {
         super();
