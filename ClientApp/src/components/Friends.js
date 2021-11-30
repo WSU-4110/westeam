@@ -7,6 +7,9 @@ import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Spinner from 'react-bootstrap/Spinner'
+
+
 
 
 export class Friends extends Component {
@@ -19,6 +22,7 @@ export class Friends extends Component {
             INPUT_STEAM_ID: "",
             STEAM_ID_LIST: [],
             FRIENDS_LIST: [],
+            loaded: false,
         };
     }
 
@@ -36,6 +40,7 @@ export class Friends extends Component {
                 (result) => {
                     this.setState({
                         FRIENDS_LIST: result,
+                        loaded: true,
                     });
                     console.log(this.state.FRIENDS_LIST);
                 },
@@ -117,27 +122,29 @@ export class Friends extends Component {
                 <Container className="p-1">
                     <Row>
                         <Col>
-                            <Suspense fallback={<h1>Fetching Friends...</h1>}>
-                                <div >
-                                    {this.state.FRIENDS_LIST.map((item) => {
-                                        return (
-                                            <>
-                                                <InputGroup className="mb-1" steamID={item[0].steamid}>
-                                                    <InputGroup.Prepend>
-                                                        {/* <InputGroup.Checkbox aria-label="Checkbox for following text input" onClick={this.addSelectedFriend("hello worldz")} /> */}
-                                                        <Button onClick={() => this.addSelectedFriend(item[0].steamid)}
-                                                            variant="success"
-                                                            style={{ float: "right" }}>Add</Button>
-                                                    </InputGroup.Prepend>
-                                                    <ListGroup.Item>
-                                                        <img src={item[0].avatar}></img>
-                                                        {item[0].personaname}</ListGroup.Item>
-                                                </InputGroup>
-                                            </>
-                                        );
-                                    }, this)}
-                                </div>
-                            </Suspense>
+                            {this.state.loaded ? null : <Spinner animation="border" role="status">
+                            </Spinner>}
+
+                            <div >
+                                {this.state.FRIENDS_LIST.map((item) => {
+                                    return (
+                                        <>
+                                            <InputGroup className="mb-1" steamID={item[0].steamid}>
+                                                <InputGroup.Prepend>
+                                                    {/* <InputGroup.Checkbox aria-label="Checkbox for following text input" onClick={this.addSelectedFriend("hello worldz")} /> */}
+                                                    <Button onClick={() => this.addSelectedFriend(item[0].steamid)}
+                                                        variant="success"
+                                                        style={{ float: "right" }}>Add</Button>
+                                                </InputGroup.Prepend>
+                                                <ListGroup.Item>
+                                                    <img src={item[0].avatar}></img>
+                                                    {item[0].personaname}</ListGroup.Item>
+                                            </InputGroup>
+                                        </>
+                                    );
+                                }, this)}
+                            </div>
+
                         </Col>
                         <Col xs={8}>                    <Jumbotron>
                             <h2 className="header">
@@ -188,7 +195,7 @@ export class Friends extends Component {
                     </Row>
                 </Container>
 
-            </div>
+            </div >
         );
     }
 }
