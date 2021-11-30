@@ -12,20 +12,10 @@ import { SteamIDBar } from './SteamIDBar';
 
 export class Home extends Component {
     static displayName = Home.name;
-
-
-    test() {
-        return (
-            <div>
-                test
-            </div>
-        )
-    }
-
     render() {
         return (
             <div>
-                <h1>Home Page</h1>
+                <h1>Home</h1>
                 <Container className="p-1">
                     <Row>
                         <Col xs={8}>

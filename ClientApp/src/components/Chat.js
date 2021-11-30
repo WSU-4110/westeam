@@ -69,6 +69,8 @@ export class Chat extends Component {
         }
         set(ref(db, 'Chat/' + uniqueChatId), message);
         document.getElementById("chatMessage").value = "";
+
+        window.location.reload()
     }
 
     render() {
@@ -79,23 +81,23 @@ export class Chat extends Component {
                 </div>
                 {/* Dynamic list will be based off the messages you get from realtime database */}
                 <ReactScrollableFeed>
-                <div class="chatBox">
-                    {
-                        
-                        this.state.chatMesages && this.state.userId
-                            ? <ul id="chatBubbles">
-                                {
-                                    Object.keys(this.state.chatMesages).map(chatId => (
-                                        <li className={this.state.chatMesages[chatId].userId === this.state.userId ? 'me' : 'them'}>
-                                            {this.state.chatMesages[chatId].messageBody}
-                                        </li>
-                                    ))
-                                }
-                            </ul>
-                            : <li> loading chat... </li>
-                            
-                    } 
-                </div>
+                    <div class="chatBox">
+                        {
+
+                            this.state.chatMesages && this.state.userId
+                                ? <ul id="chatBubbles">
+                                    {
+                                        Object.keys(this.state.chatMesages).map(chatId => (
+                                            <li className={this.state.chatMesages[chatId].userId === this.state.userId ? 'me' : 'them'}>
+                                                {this.state.chatMesages[chatId].messageBody}
+                                            </li>
+                                        ))
+                                    }
+                                </ul>
+                                : <li> loading chat... </li>
+
+                        }
+                    </div>
                 </ReactScrollableFeed>
                 <div class="chat">
                     <textarea id="chatMessage" placeholder="Type message.." name="msg" required></textarea>
