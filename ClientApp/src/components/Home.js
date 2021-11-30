@@ -25,10 +25,14 @@ export class Home extends Component {
                             <footer>Example ID: 76561198028109433</footer>
 
                         </Col>
+                        <Col xs={8}>
+                            <Chat />
+
+                        </Col>
                     </Row>
                 </Container>
 
-                <Chat />
+
 
             </div>
         );

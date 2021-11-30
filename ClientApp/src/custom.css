@@ -51,6 +51,7 @@ body{
   background-image: url('/ClientApp/public/westeam-logo.png');
   background-color: rgb(43, 40, 40);
   background-repeat: no-repeat;
+
 }
 
 NavLink{
