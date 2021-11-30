@@ -15,6 +15,7 @@ function AlertDismissibleExample(props) {
                 <Alert.Heading>Invalid Steam ID! Please try again</Alert.Heading>
                 <p>
                     The Steam ID that you have entered is invalid. Please try again.
+                    SteamID64's are 17-Digit Unique ID's
                 </p>
             </Alert>
         );
@@ -58,19 +59,23 @@ export class SteamIDBar extends Component {
 
                 <Jumbotron>
                     <h2 className="header">
-                        Enter your Steam ID
+                        Enter Your SteamID64
                     </h2>
+
                     <br />
                     <InputGroup className="mb-3">
                         <FormControl
-                            placeholder="Enter SteamID or Steam CommunityID, Profile URL or Keywords"
+                            placeholder="Ex: 76561198028109433"
                             type="text"
                             value={this.state.INPUT_STEAM_ID}
                             onChange={this.updateInput}
                         />
                     </InputGroup>
+
                     <br />
                     <AlertDismissibleExample inputID={this.state.INPUT_STEAM_ID} isValid={this.checkInput()} />
+                    <br />
+                    <a href={"https://www.steamidfinder.com/"}> How do I find my SteamID64?</a>
                 </Jumbotron>
             </div>
         );
