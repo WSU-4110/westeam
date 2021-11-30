@@ -3,24 +3,24 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-import ListGroup from "react-bootstrap/ListGroup";
 import Alert from "react-bootstrap/Alert";
 
 
-function AlertDismissibleExample() {
+function AlertDismissibleExample(props) {
     const [show, setShow] = useState(true);
 
-    if (show) {
+    if (!show && !props.isValid) {
         return (
-            <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+            <Alert variant="danger" onClose={() => setShow(true)} dismissible>
                 <Alert.Heading>Invalid Steam ID! Please try again</Alert.Heading>
                 <p>
-                    The Steam ID that you have entered is incorrect. Please try again.
+                    The Steam ID that you have entered is invalid. Please try again.
                 </p>
             </Alert>
         );
     }
-    return <Button onClick={() => setShow(true)}>Show Alert</Button>;
+    return <Button href={props.isValid ? "friends?id=" + props.inputID : null}
+        onClick={() => setShow(false)}> Submit</Button >;
 }
 
 export class SteamIDBar extends Component {
@@ -29,41 +29,11 @@ export class SteamIDBar extends Component {
         this.updateInput = this.updateInput.bind(this);
         this.state = {
             INPUT_STEAM_ID: "",
-            STEAM_ID_LIST: [],
-            idValid: false,
         };
     }
 
     updateInput(event) {
         this.setState({ INPUT_STEAM_ID: event.target.value });
-    }
-
-    addItem() {
-        let newEntry = {
-            id: 1 + Math.random(),
-            value: this.state.INPUT_STEAM_ID.slice(),
-        };
-
-        const list = [...this.state.STEAM_ID_LIST];
-
-        list.push(newEntry);
-
-        this.setState({
-            INPUT_STEAM_ID: "",
-            STEAM_ID_LIST: list
-        });
-    }
-
-    deleteItem(id) {
-        const list = [...this.state.STEAM_ID_LIST];
-
-        const updatedList = list.filter(function (item) {
-            if (item.id !== id) {
-                return item;
-            }
-        });
-
-        this.setState({ STEAM_ID_LIST: updatedList });
     }
 
 
@@ -87,9 +57,9 @@ export class SteamIDBar extends Component {
             <div>
 
                 <Jumbotron>
-                    <h1 className="header">
-                        westeam
-                    </h1>
+                    <h2 className="header">
+                        Enter your Steam ID
+                    </h2>
                     <br />
                     <InputGroup className="mb-3">
                         <FormControl
@@ -98,31 +68,9 @@ export class SteamIDBar extends Component {
                             value={this.state.INPUT_STEAM_ID}
                             onChange={this.updateInput}
                         />
-                        <InputGroup.Append>
-                            <Button variant="outline-secondary"
-                                onClick={() => this.addItem()}
-                                disabled={!this.state.INPUT_STEAM_ID.length}>Add</Button>
-                        </InputGroup.Append>
                     </InputGroup>
                     <br />
-
-                    <ListGroup >
-                        {this.state.STEAM_ID_LIST.map((item) => {
-                            return (
-                                <ListGroup.Item key={item.id} variant="success">
-                                    {item.value}
-                                    <Button onClick={() => this.deleteItem(item.id)}
-                                        variant="danger"
-                                        style={{ float: "right" }}>Remove</Button>
-                                </ListGroup.Item>
-                            );
-                        })}
-                    </ListGroup>
-                    {/* If the ID is valid redirect to the friends page containing the steam ID in the URL */}
-                    {/* <Alert variant="danger"></Alert> */}
-                    <Button href={this.checkInput() ? "friends?id=" + this.state.INPUT_STEAM_ID : null}>Submit</Button>
-
-                    <AlertDismissibleExample />
+                    <AlertDismissibleExample inputID={this.state.INPUT_STEAM_ID} isValid={this.checkInput()} />
                 </Jumbotron>
             </div>
         );
