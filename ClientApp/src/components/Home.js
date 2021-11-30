@@ -28,23 +28,18 @@ export class Home extends Component {
                 <h1>Home Page</h1>
                 <Container className="p-1">
                     <Row>
-                        <Col xs={8}>                    
-                        <Jumbotron>
-                        <SteamIDBar />
-                        </Jumbotron>
+                        <Col xs={8}>
+                            <Jumbotron>
+                                <SteamIDBar />
+                            </Jumbotron>
                             <footer>Example ID: 76561198028109433</footer>
-                            {this.test()}
-                            <h6>Select a theme</h6>
-                            <select>
-                                <option value="lightmode">lightmode</option>
-                                <option value="darkmode">darkmode</option>
-                            </select>
+
                         </Col>
                     </Row>
                 </Container>
-                
+
                 <Chat />
-                
+
             </div>
         );
     }
