@@ -86,6 +86,13 @@ export class AboutUs extends Component {
             <li>7. The website will pull all the games owned by you and your friends.</li>
             </ul>
             <br/>
+
+            <h3>Support?</h3>
+            <br/>
+
+            <p>If you still have questions or need help with using our software. We have a public chatbox available on the 
+            homepage. Ask for support and a team member will reach out to you. Your name and id will remain anonymous on the
+            chatbox.</p>
           </div>
         );
       }
