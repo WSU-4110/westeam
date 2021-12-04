@@ -47,6 +47,10 @@ ul li {
   color: white;
 }
 
+ol li {
+  color: white;
+}
+
 body{
   background-image: url('/ClientApp/public/westeam-logo.png');
   background-color: rgb(43, 40, 40);

@@ -31,15 +31,16 @@ export class AboutUs extends Component {
 
 
             <h3>Make Steam account public</h3>
-            <ul>
+            <br/>
 
-            <li>1. Go to your Steam Profile by clicking your Username
+            <ol>
+            <li>Go to your Steam Profile by clicking your Username
             at the top of the Steam interface.</li>
-            <li>2. Click the "Edit Profile" option.</li>
-            <li>3. Go to "My Privacy" settings.</li>
-            <li>4. Change your privacy settings.</li>
-            <li>5. Set all options to public.</li>
-            </ul>
+            <li>Click the "Edit Profile" option.</li>
+            <li>Go to "My Privacy" settings.</li>
+            <li>Change your privacy settings.</li>
+            <li>Set all options to public.</li>
+            </ol>
             <br/>
 
             <h3>Login Page</h3>
@@ -76,15 +77,15 @@ export class AboutUs extends Component {
             <h3>Summary of Steps</h3>
             <br/>
 
-            <ul>
-            <li>1. You must make your account public.</li>
-            <li>2. You then need tp provide your Steam ID to the website.</li>
-            <li>3. After you have entered your Steam ID you will be directed to the Friends page.</li>
-            <li>4. The website will automatically pull a list of your friends list that is linked to your account.</li>
-            <li>5. You may either select a friend from the list or manually enter a friends Steam ID.</li>
-            <li>6. After you have selected your friends, the website gathers data from you and your friend's Steam ID</li>
-            <li>7. The website will pull all the games owned by you and your friends.</li>
-            </ul>
+            <ol>
+            <li>You must make your account public.</li>
+            <li>You then need tp provide your Steam ID to the website.</li>
+            <li>After you have entered your Steam ID you will be directed to the Friends page.</li>
+            <li>The website will automatically pull a list of your friends list that is linked to your account.</li>
+            <li>You may either select a friend from the list or manually enter a friends Steam ID.</li>
+            <li>After you have selected your friends, the website gathers data from you and your friend's Steam ID</li>
+            <li>The website will pull all the games owned by you and your friends.</li>
+            </ol>
             <br/>
 
             <h3>Support?</h3>
