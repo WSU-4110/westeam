@@ -15,7 +15,8 @@ function AlertDismissibleExample(props) {
                 <Alert.Heading>Invalid Steam ID! Please try again</Alert.Heading>
                 <p>
                     The Steam ID that you have entered is invalid. Please try again.
-                    SteamID64's are 17-Digit Unique ID's
+                    (SteamID64's are 17-Digit Unique ID's and must not contain letters
+                    or special characters).
                 </p>
             </Alert>
         );

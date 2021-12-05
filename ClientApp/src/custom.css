@@ -58,6 +58,10 @@ body{
 
 }
 
+Alert p{
+  color: black;
+}
+
 NavLink{
   color: white;
 }

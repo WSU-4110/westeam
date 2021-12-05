@@ -3,17 +3,21 @@ import React, { Component } from 'react';
 export class AboutUs extends Component {
     static displayName = AboutUs.name;
 
-    constructor() {
+    constructor() { // Super constructor to inherit from other classes
         super();
     }
 
-    render() {
-    
-        return (
+    render() { // To setup the overall webpage
+
+        return ( // The webpage is setup inside the div element. Header 1 h1 element would be the title of the webpage.
+          // Header 3 h3 elements are used for the titles of each sub topic
+          // The p element is used for each description
+          // Ordered lists (ol) are used to organize the steps each with (li) element
+          // Finally the <br/> element is used to add spaces between each paragraph 
           <div>
             <h1>About Us</h1>
             <br/>
-
+          
             <img src="westeam-logo.png" alt="westeamlogo"></img>
             <br/>
 
