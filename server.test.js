@@ -10,7 +10,7 @@ const sum = require('./sum');
 
 /* Check that URL parameters are 17 digits */
 
-test('run spoof', () => {
+test('westeam', () => {
     expect(sum(1, 2)).toBe(3);
 });
 
