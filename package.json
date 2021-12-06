@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "cd ClientApp/ && npm run build && cd ../ && node server",
-    "dev": "nodemon server"
+    "dev": "nodemon server",
+    "unitTest": "jest"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
