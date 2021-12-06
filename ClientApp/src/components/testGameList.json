@@ -1,0 +1,358 @@
+{
+    "response": {
+      "game_count": 32,
+      "games": [
+        {
+          "appid": 400,
+          "name": "Portal",
+          "playtime_forever": 178,
+          "img_icon_url": "cfa928ab4119dd137e50d728e8fe703e4e970aff",
+          "img_logo_url": "4184d4c0d915bd3a45210667f7b25361352acd8f",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 0,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 71250,
+          "name": "Sonic Adventure DX",
+          "playtime_forever": 75,
+          "img_icon_url": "6568d25b43e2d1d07fc16cbe3ac9278ca51c2fb3",
+          "img_logo_url": "e8374c63e76724af4648cdea5331f4ae39af4d06",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 75,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 620,
+          "name": "Portal 2",
+          "playtime_forever": 472,
+          "img_icon_url": "2e478fc6874d06ae5baf0d147f6f21203291aa02",
+          "img_logo_url": "d2a1119ddc202fab81d9b87048f495cbd6377502",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 401,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 213610,
+          "name": "Sonic Adventure™ 2 ",
+          "playtime_forever": 0,
+          "img_icon_url": "0ff2b133493b0bf7f1c16a38a83e7053f0b90f2d",
+          "img_logo_url": "b59ee5bd744212a79db6fd8f71aec6729671da2b",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 0,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 49520,
+          "name": "Borderlands 2",
+          "playtime_forever": 183,
+          "img_icon_url": "a3f4945226e69b6196074df4c776e342d3e5a3be",
+          "img_logo_url": "86b0fa5ddb41b4dfff7df194a017f3418130d668",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 181,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 233720,
+          "name": "Surgeon Simulator",
+          "playtime_forever": 133,
+          "img_icon_url": "77e5bb562902be4a5a49b114d7370138696b1595",
+          "img_logo_url": "2a0d51aa92d2bf2e168e090f9b72bf60d78fa53e",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 0,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 367520,
+          "name": "Hollow Knight",
+          "playtime_forever": 1650,
+          "img_icon_url": "7b87aecda896ae747a6e40e3eb63498cb8b84df2",
+          "img_logo_url": "6f48839fe61a9041c578419d72ed47e6b3f08141",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 1650,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 413150,
+          "name": "Stardew Valley",
+          "playtime_forever": 2553,
+          "img_icon_url": "35d1377200084a4034238c05b0c8930451e2fb40",
+          "img_logo_url": "694de1f9cf09aba9d6d118bcff07714343529a0a",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 2553,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 239140,
+          "name": "Dying Light",
+          "playtime_2weeks": 86,
+          "playtime_forever": 259,
+          "img_icon_url": "d6eafb4fab916ac475bf67054332dd1c0659f8d6",
+          "img_logo_url": "a2656cade3af57d07d0a9622d3b52745b26b2225",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 259,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 504230,
+          "name": "Celeste",
+          "playtime_forever": 0,
+          "img_icon_url": "04cb7aa0b497a3962e6b1655b7fd81a2cc95d18b",
+          "img_logo_url": "075182d9480064141836468579a70add4b2d74a9",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 0,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 7670,
+          "name": "BioShock",
+          "playtime_forever": 0,
+          "img_icon_url": "9a7c9f640a76e6a32592277dbbc36a0f6da05372",
+          "img_logo_url": "4c2a7f97e6556a95319eb346aed7beff9fe0535c",
+          "playtime_windows_forever": 0,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 8850,
+          "name": "BioShock 2",
+          "playtime_forever": 0,
+          "img_icon_url": "f5eda925c0e57373aaea4cae17b6f175115a8d54",
+          "img_logo_url": "fde6fa1b15e4eb409c9d592197024571fded77e7",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 0,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 8870,
+          "name": "BioShock Infinite",
+          "playtime_forever": 0,
+          "img_icon_url": "4ebaf5f9ee74f50152f7ff361debef7553fa0e4e",
+          "img_logo_url": "870bb889e192cf8d31876ed04d329a5d51c6fc2c",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 0,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 409710,
+          "name": "BioShock Remastered",
+          "playtime_forever": 0,
+          "img_icon_url": "eb72262cd3ccc3219dd76392be3b60a4b6cbfd38",
+          "img_logo_url": "cb7318b68128f6aa90c9e4e2d14544281ac22da0",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 0,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 409720,
+          "name": "BioShock 2 Remastered",
+          "playtime_forever": 0,
+          "img_icon_url": "97527a02b36f8ac4aba21005c2d953cc908a08e1",
+          "img_logo_url": "34c3f591cf4cb28711d7f33f73dee0f09cdb94a4",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 0,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 578650,
+          "name": "The Outer Worlds",
+          "playtime_forever": 0,
+          "img_icon_url": "6de56b3e6ff07177a97cf2373145afc6d3a9a926",
+          "img_logo_url": "6ad5a46dc41d45b133cc2e9b2c5e856003c7c8eb",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 0,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 205100,
+          "name": "Dishonored",
+          "playtime_forever": 928,
+          "img_icon_url": "74f8ee1ba536e0759e64a9bf801fc013e16c8dd1",
+          "img_logo_url": "b94f5ff693304b7f70f88403d444686c4af3b940",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 928,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 403640,
+          "name": "Dishonored 2",
+          "playtime_forever": 602,
+          "img_icon_url": "6d6bac950a234764a353c518607dcd01973f5b65",
+          "img_logo_url": "77ba96bac923adf724e7cc0e847caedcd59b479d",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 602,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 614570,
+          "name": "Dishonored®: Death of the Outsider™ ",
+          "playtime_forever": 0,
+          "img_icon_url": "7e3bbe2deae930b57651565810b7f7b41349af53",
+          "img_logo_url": "9b96053d57a6d75fda9bc2d00275aac5449739b5",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 0,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 677620,
+          "name": "Splitgate",
+          "playtime_forever": 52,
+          "img_icon_url": "03e452b180ff77986c3957819bde4c69448a2d0f",
+          "img_logo_url": "18a5a2f9eba130f6b3a7260f0503d85a3a977703",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 52,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 240720,
+          "name": "Getting Over It with Bennett Foddy",
+          "playtime_forever": 117,
+          "img_icon_url": "161090eb78acf2e28333e8ae182121d906f1ee85",
+          "img_logo_url": "4853f6e902fb72ffa4207fc1397c436fd3c02dcc",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 0,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 753640,
+          "name": "Outer Wilds",
+          "playtime_forever": 156,
+          "img_icon_url": "8d0c2dcfc599445affcbad76a34d89478c022780",
+          "img_logo_url": "4f303545d9d0748ecda6e5fb498aa0e912d275d7",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 156,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 782330,
+          "name": "DOOM Eternal",
+          "playtime_forever": 2540,
+          "img_icon_url": "14235f425d27ab3b83661ba14c17d22dc90e566b",
+          "img_logo_url": "863e02314295003ebdf7bfa72e355fa780c72417",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 2540,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 552520,
+          "name": "Far Cry 5",
+          "playtime_forever": 153,
+          "img_icon_url": "928df2d32021f480499a97458068f62c45298e7a",
+          "img_logo_url": "652709a022202fc36d65674a0bdf9519a0c18981",
+          "playtime_windows_forever": 153,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 823130,
+          "name": "Totally Accurate Battlegrounds",
+          "playtime_forever": 761,
+          "img_icon_url": "920902c516d435c3d9a6c5ef92e3cd4372f9314b",
+          "img_logo_url": "cf3b17ca4bf9328eb2489989e9c3c60b9bc8d61f",
+          "playtime_windows_forever": 761,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 1097150,
+          "name": "Fall Guys: Ultimate Knockout",
+          "playtime_2weeks": 8,
+          "playtime_forever": 1679,
+          "img_icon_url": "6c027709b9eb1417c993bc7d513b97b232002368",
+          "img_logo_url": "7c57bd2ea67fdf3267677abecab79d6f62c67f7d",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 1679,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 1172470,
+          "name": "Apex Legends",
+          "playtime_2weeks": 5,
+          "playtime_forever": 4141,
+          "img_icon_url": "070902d2389878ac4bf29efb5b92832c60bdf24e",
+          "img_logo_url": "6a3169969cd4a66c7ae29a4934990160bccea1e4",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 4105,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 1174180,
+          "name": "Red Dead Redemption 2",
+          "playtime_forever": 660,
+          "img_icon_url": "5106abd9c1187a97f23295a0ba9470c94804ec6c",
+          "img_logo_url": "d66accca2fc5061fa51804a88ce1cc7bfbd25c66",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 660,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 359550,
+          "name": "Tom Clancy's Rainbow Six Siege",
+          "playtime_forever": 279,
+          "img_icon_url": "43a47cd1ff04838e19d829559544c88715ed74cd",
+          "img_logo_url": "48375618aabed49857a92f1715235620fd8e86a0",
+          "playtime_windows_forever": 279,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 623990,
+          "name": "Tom Clancy's Rainbow Six Siege - Test Server",
+          "playtime_forever": 0,
+          "img_icon_url": "20deaf466474f76f2ffdb345fe56f40fe3af74c0",
+          "img_logo_url": "ecad14acd27551c5bcd669e25aec9967bbe09332",
+          "playtime_windows_forever": 0,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 1237970,
+          "name": "Titanfall® 2",
+          "playtime_forever": 235,
+          "img_icon_url": "d73c7e572859bd7490947d1aeab5c33eda18fd64",
+          "img_logo_url": "aa4097f1c8e6dc4e959c6384748ebe02413d02be",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 235,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        },
+        {
+          "appid": 1240440,
+          "name": "Halo Infinite",
+          "playtime_2weeks": 495,
+          "playtime_forever": 495,
+          "img_icon_url": "ec684b943169d675439f6cdf64fa2f2aa90d9821",
+          "img_logo_url": "8af1b72ec4407ec71ff241ec610e87d3df263488",
+          "has_community_visible_stats": true,
+          "playtime_windows_forever": 495,
+          "playtime_mac_forever": 0,
+          "playtime_linux_forever": 0
+        }
+      ]
+    }
+  }
