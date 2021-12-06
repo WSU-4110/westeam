@@ -5,7 +5,7 @@ const routes = require("./routes/api");
 const cors = require('cors')
 const request = require('request-promise');
 const { info } = require("console");
-const { parse } = require("path/posix");
+//const { parse } = require("path/posix");
 
 
 //Get steam API key from .env file
