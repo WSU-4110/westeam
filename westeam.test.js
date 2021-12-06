@@ -54,3 +54,6 @@ test('MatchGameNames', () => {
 test('MatchGenreNames', () => {
     expect(sum(1, 2)).toBe(3);
 });
+test('MatchGenreNames', () => {
+    expect(sum(1, 2)).toBe(3);
+});
