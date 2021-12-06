@@ -3,17 +3,21 @@ import React, { Component } from 'react';
 export class AboutUs extends Component {
     static displayName = AboutUs.name;
 
-    constructor() {
+    constructor() { // Super constructor to inherit from other classes
         super();
     }
 
-    render() {
-    
-        return (
+    render() { // To setup the overall webpage
+
+        return ( // The webpage is setup inside the div element. Header 1 h1 element would be the title of the webpage.
+          // Header 3 h3 elements are used for the titles of each sub topic
+          // The p element is used for each description
+          // Ordered lists (ol) are used to organize the steps each with (li) element
+          // Finally the <br/> element is used to add spaces between each paragraph 
           <div>
             <h1>About Us</h1>
             <br/>
-
+          
             <img src="westeam-logo.png" alt="westeamlogo"></img>
             <br/>
 
@@ -31,15 +35,16 @@ export class AboutUs extends Component {
 
 
             <h3>Make Steam account public</h3>
-            <ul>
+            <br/>
 
-            <li>1. Go to your Steam Profile by clicking your Username
+            <ol>
+            <li>Go to your Steam Profile by clicking your Username
             at the top of the Steam interface.</li>
-            <li>2. Click the "Edit Profile" option.</li>
-            <li>3. Go to "My Privacy" settings.</li>
-            <li>4. Change your privacy settings.</li>
-            <li>5. Set all options to public.</li>
-            </ul>
+            <li>Click the "Edit Profile" option.</li>
+            <li>Go to "My Privacy" settings.</li>
+            <li>Change your privacy settings.</li>
+            <li>Set all options to public.</li>
+            </ol>
             <br/>
 
             <h3>Login Page</h3>
@@ -76,16 +81,23 @@ export class AboutUs extends Component {
             <h3>Summary of Steps</h3>
             <br/>
 
-            <ul>
-            <li>1. You must make your account public.</li>
-            <li>2. You then need tp provide your Steam ID to the website.</li>
-            <li>3. After you have entered your Steam ID you will be directed to the Friends page.</li>
-            <li>4. The website will automatically pull a list of your friends list that is linked to your account.</li>
-            <li>5. You may either select a friend from the list or manually enter a friends Steam ID.</li>
-            <li>6. After you have selected your friends, the website gathers data from you and your friend's Steam ID</li>
-            <li>7. The website will pull all the games owned by you and your friends.</li>
-            </ul>
+            <ol>
+            <li>You must make your account public.</li>
+            <li>You then need tp provide your Steam ID to the website.</li>
+            <li>After you have entered your Steam ID you will be directed to the Friends page.</li>
+            <li>The website will automatically pull a list of your friends list that is linked to your account.</li>
+            <li>You may either select a friend from the list or manually enter a friends Steam ID.</li>
+            <li>After you have selected your friends, the website gathers data from you and your friend's Steam ID</li>
+            <li>The website will pull all the games owned by you and your friends.</li>
+            </ol>
             <br/>
+
+            <h3>Support?</h3>
+            <br/>
+
+            <p>If you still have questions or need help with using our software. We have a public chatbox available on the 
+            homepage. Ask for support and a team member will reach out to you. Your name and id will remain anonymous on the
+            chatbox.</p>
           </div>
         );
       }

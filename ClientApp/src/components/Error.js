@@ -5,35 +5,41 @@ var ErrorMessage = document.getElementById('Steam ID error');
 
 SteamID.addEventListener('textInput', SteamID_Verify)
 
-function validated() {
+function validated() { // The ID must contain 17 numbers, no more/less and strings and chars canno't be used
     if (SteamID.value.length < 17) {
         SteamID.style.border = "1px solid red";
         SteamID_error.style.display = "block";
+        SteamID.style.p = "black";
         SteamID.focus();
         return false; // If ID is less than 17, return false
     } else if(SteamID.value.length > 17) {
         SteamID.style.border = "1px solid red";
         SteamID_error.style.display = "block";
+        SteamID.style.p = "black";
         SteamID.focus();
         return false; // If ID is greater than 17, return false
     } else if(SteamID.value.length != 17) {
         SteamID.style.border = "1px solid red";
         SteamID_error.style.display = "block";
+        SteamID.style.p = "black";
         SteamID.focus();
         return false; // If ID is does not equal 17, return false
     } else if(SteamID.value.length == "") {
         SteamID.style.border = "1px solid red";
         SteamID_error.style.display = "block";
+        SteamID.style.p = "black";
         SteamID.focus();
         return false; // If ID is blank, return false
     } else if(SteamID.value.length == char) {
         SteamID.style.border = "1px solid red";
         SteamID_error.style.display = "block";
+        SteamID.style.p = "black";
         SteamID.focus();
         return false; // If ID is a character, return false
     } else if(SteamID.value.length == string) {
         SteamID.style.border = "1px solid red";
         SteamID_error.style.display = "block";
+        SteamID.style.p = "black";
         SteamID.focus();
         return false; // If ID is a letter, return false
     }
