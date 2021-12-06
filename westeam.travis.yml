@@ -1,2 +1,2 @@
-anguage: node
+language: node
 script: npm run unitTest
