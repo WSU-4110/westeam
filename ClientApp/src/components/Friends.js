@@ -190,6 +190,8 @@ export class Friends extends Component {
                                 76561199182670143
                                 <br />
                                 76561198170048678
+                                <br />
+                                76561198038768768
                             </p>
                         </Col>
                     </Row>
