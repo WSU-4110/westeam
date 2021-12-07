@@ -3,6 +3,9 @@ import Table from "react-bootstrap/Table";
 import Image from "react-bootstrap/Image";
 import Spinner from 'react-bootstrap/Spinner'
 
+import { Chat } from './Chat';
+
+
 export class Output extends Component {
     static displayName = Output.name;
 
@@ -71,11 +74,13 @@ export class Output extends Component {
             return <div>
                 <Spinner animation="border" role="status">
                 </Spinner>
+                <Chat />
             </div>
         }
         else {
             return (
                 <div>
+                <Chat />
                     <h1>Commonly Owned Games</h1>
 
                     <Table striped bordered hover>

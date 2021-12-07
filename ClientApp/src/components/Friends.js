@@ -9,6 +9,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from 'react-bootstrap/Spinner'
 
+import { Chat } from './Chat';
+
 export class Friends extends Component {
     static displayName = Friends.name;
 
@@ -115,6 +117,7 @@ export class Friends extends Component {
     render() {
         return (
             <div>
+            <Chat />
                 <h1>Friends Page</h1>
                 <Container className="p-1">
                     <Row>
