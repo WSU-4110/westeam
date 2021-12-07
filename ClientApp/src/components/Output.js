@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import Table from "react-bootstrap/Table";
 import Image from "react-bootstrap/Image";
 import Spinner from 'react-bootstrap/Spinner'
-
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { Chat } from './Chat';
+import { Container } from 'react-bootstrap';
 
 
 export class Output extends Component {
@@ -74,35 +76,48 @@ export class Output extends Component {
             return <div>
                 <Spinner animation="border" role="status">
                 </Spinner>
-                <Chat />
             </div>
         }
         else {
             return (
                 <div>
-                <Chat />
+
+
+
+
                     <h1>Commonly Owned Games</h1>
+                    <Container>
+                        <Row>
+                            <Col xs={9}>
+                                <Table striped bordered hover>
 
-                    <Table striped bordered hover>
+                                    <tbody>
 
-                        <tbody>
+                                        {this.state.DISPLAY.map((item, i) => {
 
-                            {this.state.DISPLAY.map((item, i) => {
+                                            return (
 
-                                return (
+                                                <tr key={i}>
+                                                    <td>
+                                                        <a href={"https://store.steampowered.com/app/" + item.app_id}><Image src={item.img}></Image></a>
+                                                    </td>
+                                                    <td>
+                                                        <h2>{item.name}</h2></td>
+                                                </tr>
 
-                                    <tr key={i}>
-                                        <td>
-                                            <a href={"https://store.steampowered.com/app/" + item.app_id}><Image src={item.img}></Image></a>
-                                        </td>
-                                        <td>
-                                            <h2>{item.name}</h2></td>
-                                    </tr>
+                                            );
+                                        })}
+                                    </tbody>
+                                </Table>
+                            </Col>
+                            <Col>
+                                <Chat />
+                            </Col>
+                        </Row>
+                    </Container>
 
-                                );
-                            })}
-                        </tbody>
-                    </Table>
+
+
                 </div>
             );
         }

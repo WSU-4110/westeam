@@ -117,7 +117,7 @@ export class Friends extends Component {
     render() {
         return (
             <div>
-            <Chat />
+                <Chat />
                 <h1>Friends Page</h1>
                 <Container className="p-1">
                     <Row>
@@ -182,6 +182,9 @@ export class Friends extends Component {
                             <Button href={"output?id=" + this.submitFriends()}>Submit</Button>
                             {/* <Button onClick={() => this.submitFriends()}>Submit</Button> */}
                         </Jumbotron>
+                        </Col>
+                        <Col>
+                            <Chat />
                         </Col>
                     </Row>
                 </Container>
