@@ -1,5 +1,4 @@
-﻿
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 
 import firebase from 'firebase/app';
 import { initializeApp } from 'firebase/app';

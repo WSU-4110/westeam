@@ -5,7 +5,6 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 
-
 function AlertDismissibleExample(props) {
     const [show, setShow] = useState(true);
 

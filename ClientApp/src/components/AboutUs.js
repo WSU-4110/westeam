@@ -33,7 +33,6 @@ export class AboutUs extends Component {
             which allows the website to fetch the data from their Steam ID.</p>
             <br/>
 
-
             <h3>Make Steam account public</h3>
             <br/>
 

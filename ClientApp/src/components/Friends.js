@@ -9,9 +9,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from 'react-bootstrap/Spinner'
 
-
-
-
 export class Friends extends Component {
     static displayName = Friends.name;
 
@@ -182,17 +179,6 @@ export class Friends extends Component {
                             <Button href={"output?id=" + this.submitFriends()}>Submit</Button>
                             {/* <Button onClick={() => this.submitFriends()}>Submit</Button> */}
                         </Jumbotron>
-                            <p>
-                                ExampleIDs:
-                                <br />
-                                76561198028109433
-                                <br />
-                                76561199182670143
-                                <br />
-                                76561198170048678
-                                <br />
-                                76561198038768768
-                            </p>
                         </Col>
                     </Row>
                 </Container>
