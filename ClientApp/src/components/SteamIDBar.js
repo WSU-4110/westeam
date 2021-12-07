@@ -60,7 +60,7 @@ export class SteamIDBar extends Component {
 
                 <Jumbotron>
                     <h2 className="header">
-                        Enter Your SteamID64
+                        Enter Your SteamID
                     </h2>
 
                     <br />
