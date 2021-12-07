@@ -5,6 +5,7 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 
+// Function that prints message saying ID is invalid
 function AlertDismissibleExample(props) {
     const [show, setShow] = useState(true);
 

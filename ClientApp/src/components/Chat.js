@@ -1,12 +1,10 @@
 ﻿import React, { Component } from 'react';
-
 import firebase from 'firebase/app';
 import { initializeApp } from 'firebase/app';
 import { child, get, getDatabase, onChildAdded, ref, set } from "firebase/database";
 import 'firebase/auth';
 import { getAuth, onAuthStateChanged, signInAnonymously } from "firebase/auth";
 import ReactScrollableFeed from 'react-scrollable-feed'
-
 import { firebaseConfig } from './FIREBASE_API_KEY';
 import './Chat.css';
 
@@ -26,8 +24,6 @@ export class Chat extends Component {
                 currentUser = auth.currentUser
                 this.setState({ userId: currentUser.uid })
             })
-
-
         // onAuthStateChanged(auth, (user) => {
         //     if (user) {
         //         this.setState({ userId: user.uid })
