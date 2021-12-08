@@ -43,8 +43,8 @@ We are a group of Steam players ourselves and are dedicated to helping others fi
 
 ## Contributors
 
-Richard Breslin
-Elyas Musa
-Muneeb Khan
-Mohammed Ali
+Richard Breslin,
+Elyas Musa,
+Muneeb Khan,
+Mohammed Ali,
 Matt Korte
