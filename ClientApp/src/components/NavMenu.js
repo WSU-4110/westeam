@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
+import Image from 'react-bootstrap/Image'
 
 export class NavMenu extends Component {
   static displayName = NavMenu.name;
@@ -26,24 +27,27 @@ export class NavMenu extends Component {
       <header>
         <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
           <Container>
-            <NavbarBrand tag={Link} className="text-white" to="/">westeam</NavbarBrand>
+            <NavbarBrand tag={Link} className="text-white" to="/">
+              <Image src="westeam-logo-crop.png"></Image>
+
+            </NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
               <ul className="navbar-nav flex-grow">
                 <NavItem>
                   <NavLink tag={Link} className="text-white" to="/">Home</NavLink>
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                   <NavLink tag={Link} className="text-white" to="/friends">Friends</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink tag={Link} className="text-white" to="/output">Output</NavLink>
+                </NavItem> */}
+                <NavItem>
+                  <NavLink tag={Link} className="text-white" to="/aboutus">About</NavLink>
                 </NavItem>
                 <NavItem>
-                   <NavLink tag={Link} className="text-white" to="/aboutus">AboutUs</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" ><img src="loginsteamlarge.png" href="https://store.steampowered.com/login/" /></NavLink>
+                  <NavLink tag={Link} className="text-dark" ><a href="https://store.steampowered.com/login/"><img src="loginsteamlarge.png" /></a></NavLink>
                 </NavItem>
               </ul>
             </Collapse>

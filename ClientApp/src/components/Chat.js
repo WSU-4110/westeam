@@ -1,13 +1,10 @@
-﻿
-import React, { Component } from 'react';
-
+﻿import React, { Component } from 'react';
 import firebase from 'firebase/app';
 import { initializeApp } from 'firebase/app';
 import { child, get, getDatabase, onChildAdded, ref, set } from "firebase/database";
 import 'firebase/auth';
 import { getAuth, onAuthStateChanged, signInAnonymously } from "firebase/auth";
 import ReactScrollableFeed from 'react-scrollable-feed'
-
 import { firebaseConfig } from './FIREBASE_API_KEY';
 import './Chat.css';
 
@@ -27,8 +24,6 @@ export class Chat extends Component {
                 currentUser = auth.currentUser
                 this.setState({ userId: currentUser.uid })
             })
-
-
         // onAuthStateChanged(auth, (user) => {
         //     if (user) {
         //         this.setState({ userId: user.uid })
@@ -69,6 +64,8 @@ export class Chat extends Component {
         }
         set(ref(db, 'Chat/' + uniqueChatId), message);
         document.getElementById("chatMessage").value = "";
+
+        window.location.reload()
     }
 
     render() {
@@ -79,23 +76,23 @@ export class Chat extends Component {
                 </div>
                 {/* Dynamic list will be based off the messages you get from realtime database */}
                 <ReactScrollableFeed>
-                <div class="chatBox">
-                    {
-                        
-                        this.state.chatMesages && this.state.userId
-                            ? <ul id="chatBubbles">
-                                {
-                                    Object.keys(this.state.chatMesages).map(chatId => (
-                                        <li className={this.state.chatMesages[chatId].userId === this.state.userId ? 'me' : 'them'}>
-                                            {this.state.chatMesages[chatId].messageBody}
-                                        </li>
-                                    ))
-                                }
-                            </ul>
-                            : <li> loading chat... </li>
-                            
-                    } 
-                </div>
+                    <div class="chatBox">
+                        {
+
+                            this.state.chatMesages && this.state.userId
+                                ? <ul id="chatBubbles">
+                                    {
+                                        Object.keys(this.state.chatMesages).map(chatId => (
+                                            <li className={this.state.chatMesages[chatId].userId === this.state.userId ? 'me' : 'them'}>
+                                                {this.state.chatMesages[chatId].messageBody}
+                                            </li>
+                                        ))
+                                    }
+                                </ul>
+                                : <li> loading chat... </li>
+
+                        }
+                    </div>
                 </ReactScrollableFeed>
                 <div class="chat">
                     <textarea id="chatMessage" placeholder="Type message.." name="msg" required></textarea>

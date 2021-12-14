@@ -4,8 +4,6 @@ const app = express();
 const routes = require("./routes/api");
 const cors = require('cors')
 const request = require('request-promise');
-const { info } = require("console");
-const { parse } = require("path/posix");
 
 
 //Get steam API key from .env file
@@ -125,37 +123,6 @@ app.get("/output/:steamID", (req, res) => {
     }))
   })
 
-
-  // getCommonGames(SteamIdArray){
-  //   var ownedGames;
-  //   var commonGames;
-  //   var totalUsers = SteamIdArray.length;
-  //   var totalGames = Object.keys(ownedGames).length;
-
-  //   // parse the full games list in ownedGames for each steamId
-  //   for (let i = 0; i < totalUsers; i++) {
-  //     ownedGames = getGamesList(SteamIdArray[i]);
-  //   }
-
-  //   // got thru the list of all owned games, and look for dupilcates.
-  //   // if number of duplicates is the same as totalUser, add to commonGames
-  //   // this is horribly inefficient
-  //   for (let i = 0; i < totalGames; i++) {
-  //     var ownerCount = 0;
-  //     for (let j = i; j < totalGames; j++) {
-  //       if (ownedGames[i].appid === ownedGames[j].appid) {
-  //         ownerCount++;
-  //       }
-
-  //       if (ownerCounter === totalUsers) {
-  //         commonGames = JSON.parse(ownedGames[i]);
-  //         break; // no need to keep searching if all owners have game
-  //       }
-  //     }
-  //   }
-
-  //   return commonGames; // this should hopefully work. Hopefully.
-  // }
 });
 
 
@@ -181,19 +148,3 @@ app.get("/*", (req, res) => {
 var PORT = 3001;
 
 app.listen(PORT, console.log(`Server listening on port: ${PORT}`));
-
-// Login information
-var name = " ";
-var id = 0;
-var gameslist = " ";
-
-
-// Friends information
-var friendsname = " ";
-var friendsid = 0;
-var friendsgames = " ";
-
-// Fetch Data
-var getuserinfo = " ";
-var getfriendsinfo = " ";
-var returngames = " ";
