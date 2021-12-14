@@ -11,6 +11,11 @@ code {
   color: #fff(11, 6, 85);
   background-color: #1b6ec2;
   border-color: #1861ac;
+
+}
+
+p{
+  color: white;
 }
 
 div{
@@ -30,11 +35,27 @@ h2 {
   font: bold;
 }
 
+h3 {
+  color: white;
+}
+
+h6 {
+  color: white;
+}
+
+ul li {
+  color: white;
+}
+
 body{
   background-color: rgb(43, 40, 40);
 }
 
 NavLink{
+  color: white;
+}
+
+footer{
   color: white;
 }
 
