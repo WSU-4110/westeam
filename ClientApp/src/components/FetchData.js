@@ -17,10 +17,10 @@ export class FetchData extends Component {
       <table className='table table-striped' aria-labelledby="tabelLabel">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
+            <th>Release Date</th>
+            <th>Title</th>
+            <th>Rating</th>
+            <th>Genre</th>
           </tr>
         </thead>
         <tbody>
@@ -44,7 +44,7 @@ export class FetchData extends Component {
 
     return (
       <div>
-        <h1 id="tabelLabel" >Weather forecast</h1>
+        <h1 id="tabelLabel" >Steam API Data</h1>
         <p>This component demonstrates fetching data from the server.</p>
         {contents}
       </div>

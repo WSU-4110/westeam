@@ -1,0 +1,64 @@
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+  }
+  
+  code {
+    color: #E01A76;
+  }
+  
+  .btn-primary {
+    color: #fff(11, 6, 85);
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+  }
+  
+  p{
+    color: black;
+  }
+  
+  div{
+    color: white;
+  }
+  
+  header{
+    background-color: rgb(62, 62, 112);
+  }
+  
+  h1{
+    color: black;
+  }
+  
+  h2 {
+    color: white;
+  }
+  
+  h3 {
+    color: black;
+  }
+
+  h6 {
+    color: black;
+  }
+  
+  ul li {
+    color: black;
+  }
+  
+  body{
+    background-color: rgb(43, 40, 40);
+  }
+  
+  NavLink{
+    color:black ;
+  }
+  
+  footer{
+    color:black;
+  }
+  
+  Table{
+    background-color: rgb(195, 221, 228);
+    border-style: solid;
+    border-color: white 1px;
+  }
