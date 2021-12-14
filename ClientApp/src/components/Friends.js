@@ -7,7 +7,9 @@ import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Spinner from 'react-bootstrap/Spinner'
 
+import { Chat } from './Chat';
 
 export class Friends extends Component {
     static displayName = Friends.name;
@@ -19,6 +21,7 @@ export class Friends extends Component {
             INPUT_STEAM_ID: "",
             STEAM_ID_LIST: [],
             FRIENDS_LIST: [],
+            loaded: false,
         };
     }
 
@@ -36,6 +39,7 @@ export class Friends extends Component {
                 (result) => {
                     this.setState({
                         FRIENDS_LIST: result,
+                        loaded: true,
                     });
                     console.log(this.state.FRIENDS_LIST);
                 },
@@ -113,31 +117,34 @@ export class Friends extends Component {
     render() {
         return (
             <div>
+                <Chat />
                 <h1>Friends Page</h1>
                 <Container className="p-1">
                     <Row>
                         <Col>
-                            <Suspense fallback={<h1>Fetching Friends...</h1>}>
-                                <div >
-                                    {this.state.FRIENDS_LIST.map((item) => {
-                                        return (
-                                            <>
-                                                <InputGroup className="mb-1" steamID={item[0].steamid}>
-                                                    <InputGroup.Prepend>
-                                                        {/* <InputGroup.Checkbox aria-label="Checkbox for following text input" onClick={this.addSelectedFriend("hello worldz")} /> */}
-                                                        <Button onClick={() => this.addSelectedFriend(item[0].steamid)}
-                                                            variant="success"
-                                                            style={{ float: "right" }}>Add</Button>
-                                                    </InputGroup.Prepend>
-                                                    <ListGroup.Item>
-                                                        <img src={item[0].avatar}></img>
-                                                        {item[0].personaname}</ListGroup.Item>
-                                                </InputGroup>
-                                            </>
-                                        );
-                                    }, this)}
-                                </div>
-                            </Suspense>
+                            {this.state.loaded ? null : <Spinner animation="border" role="status">
+                            </Spinner>}
+
+                            <div >
+                                {this.state.FRIENDS_LIST.map((item) => {
+                                    return (
+                                        <>
+                                            <InputGroup className="mb-1" steamID={item[0].steamid}>
+                                                <InputGroup.Prepend>
+                                                    {/* <InputGroup.Checkbox aria-label="Checkbox for following text input" onClick={this.addSelectedFriend("hello worldz")} /> */}
+                                                    <Button onClick={() => this.addSelectedFriend(item[0].steamid)}
+                                                        variant="success"
+                                                        style={{ float: "right" }}>Add</Button>
+                                                </InputGroup.Prepend>
+                                                <ListGroup.Item>
+                                                    <img src={item[0].avatar}></img>
+                                                    {item[0].personaname}</ListGroup.Item>
+                                            </InputGroup>
+                                        </>
+                                    );
+                                }, this)}
+                            </div>
+
                         </Col>
                         <Col xs={8}>                    <Jumbotron>
                             <h2 className="header">
@@ -175,20 +182,14 @@ export class Friends extends Component {
                             <Button href={"output?id=" + this.submitFriends()}>Submit</Button>
                             {/* <Button onClick={() => this.submitFriends()}>Submit</Button> */}
                         </Jumbotron>
-                            <p>
-                                ExampleIDs:
-                                <br />
-                                76561198028109433
-                                <br />
-                                76561199182670143
-                                <br />
-                                76561198170048678
-                            </p>
+                        </Col>
+                        <Col>
+                            <Chat />
                         </Col>
                     </Row>
                 </Container>
 
-            </div>
+            </div >
         );
     }
 }

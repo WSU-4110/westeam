@@ -1,3 +1,4 @@
+/*
 import React, { Component, Suspense } from 'react';
 import Jumbotron from "react-bootstrap/Jumbotron";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -7,15 +8,16 @@ import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { calculateObjectSize } from 'bson';
+import { calculateObjectSize } from 'bson'; */
 
-const express = require("express");
+const express = require("express/app");
 const morgan = require("morgan");
 const app = express();
-const routes = require("./routes/api");
+const routes = require("./routes/api/app");
 const cors = require('cors')
 const request = require('request-promise');
 const { info } = require("console");
+
 
 /*require("dotenv").config();
 const STEAM_API_KEY = process.env.STEAM_API_KEY;
@@ -49,25 +51,19 @@ app.use(express.static("./ClientApp/build/"));*/
 const testSteamIds = ["76561198170048678", "76561198028109433", "76561197960287930"];
 const STEAM_API_KEY = process.env.STEAM_API_KEY;
 
-// Declare Class
-export class GamesList extends Component{
-    static displayName = GamesList.name;
+const GamesList = {
 
-    constructor(){
-        super();
-    }
-
-    getGamesList(SteamId){
+    getGamesList: (SteamId) => {
         request('https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key='
         + STEAM_API_KEY + '&steamid=' + SteamId + 
         '&include_appinfo=1&include_played_free_games=1').then(function (gamesListBody) {
             return JSON.parse(gamesListBody).response.games
         })
-    }
+    },
 
     // Note for passing an array in JS:
     // https://www.samanthaming.com/tidbits/48-passing-arrays-as-function-arguments/
-    getCommonGames(SteamIdArray){
+    getCommonGames: (SteamIdArray) => {
         var ownedGames;
         var commonGames;
         var totalUsers = SteamIdArray.length;
@@ -90,11 +86,25 @@ export class GamesList extends Component{
 
                 if(ownerCounter === totalUsers) {
                     commonGames = JSON.parse(ownedGames[i]);
-                    break; // no need to keep searching if all owners have game
+                    break; // no need to keep searching if all SteamIds own game
                 }
             }
         }
 
         return commonGames; // this should hopefully work. Hopefully.
+    },
+
+    canGetGamesList: (SteamId) => {
+        // this function checks if user entered SteamId will return a games list
+        // reasons for invalidity may be: SteamId DNE, account set to private
+        var gamesList = getGamesList(SteamId);
+
+        if (gamesList == NULL){
+            return false;
+        }
+
+        return true;
     }
 }
+module.exports = GamesList;
+//}

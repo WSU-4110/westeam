@@ -5,7 +5,8 @@ var ErrorMessage = document.getElementById('Steam ID error');
 
 SteamID.addEventListener('textInput', SteamID_Verify)
 
-function validated() {
+// Function validates Steam ID to see if there are any errors
+function validated() { // The ID must contain 17 numbers, no more/less and strings and chars canno't be used
     if (SteamID.value.length < 17) {
         SteamID.style.border = "1px solid red";
         SteamID_error.style.display = "block";
@@ -40,10 +41,11 @@ function validated() {
 
 }
 
+// Function that checks if ID is correct
 function SteamID_Verify() {
     if (SteamID.value.length == 17) {
         SteamID.style.border = "1px solid silver";
         SteamID_error.style.display = "none";
-        return true;
+        return true; // If ID is correct, return true
     }
 }

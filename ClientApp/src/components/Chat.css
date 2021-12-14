@@ -60,7 +60,8 @@ ul{
     border-bottom-right-radius: 30px;
   }
   .chatBox{
-    display: block;
+    display: flex;
+    flex-direction:column-reverse;
     position: fixed;
     top: 130px;
     height: 50%;
